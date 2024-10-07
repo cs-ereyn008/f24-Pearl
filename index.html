@@ -20,6 +20,25 @@
             min-height: 100vh;
         }
 
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 12px; /* Width of the entire scrollbar */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #003366; /* Dark blue background for the track */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #00aaff; /* Light blue for the scrollbar */
+            border-radius: 6px; /* Rounded edges on the scrollbar */
+            border: 3px solid #003366; /* Border around the scrollbar for a gap effect */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #00ccff; /* Lighter blue when hovering */
+        }
+
         header {
             background-color: transparent;
             padding: 20px;
@@ -46,12 +65,12 @@
             align-items: center;
         }
 
-        /* Adjust styles for the stoplight image */
         .navbar h1 img {
-            height: 24px; 
-            width: 30; 
-            margin-left: 10px; 
-            vertical-align: middle; 
+            height: 28px;
+            max-width: 28px;
+            width: auto;
+            margin-left: 10px;
+            vertical-align: middle;
         }
 
         nav ul {
@@ -91,7 +110,7 @@
         }
 
         .hero-section img {
-            width: 400px; /* Updated width for the larger logo */
+            width: 400px; /* Adjust logo size as needed */
             animation: glow 1.5s infinite alternate;
         }
 
