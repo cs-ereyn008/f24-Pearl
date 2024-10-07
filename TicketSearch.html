@@ -21,25 +21,6 @@
             min-height: 100vh;
         }
 
-        /* Custom scrollbar styles */
-        ::-webkit-scrollbar {
-            width: 18px; 
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #003366; 
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #00aaff; 
-            border-radius: 6px; 
-            border: 3px solid #003366; 
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #00ccff; 
-        }
-
         header {
             background-color: transparent;
             padding: 20px;
@@ -51,42 +32,26 @@
             align-items: center;
         }
 
-        .navbar {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            align-items: center; 
-        }
-
         .navbar h1 {
             color: #ffffff;
             font-size: 28px;
             font-weight: bold;
-            letter-spacing: 1px;
             display: flex;
             align-items: center;
         }
 
-        .navbar h1 img {
-            height: 12px; 
-            width: 15px;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
-        nav ul {
+        .navbar nav ul {
             list-style-type: none;
             display: flex;
+            flex-wrap: wrap; /* Allow items to wrap */
             gap: 20px;
-            flex-wrap: wrap;
-            align-items: center;
         }
 
-        nav ul li {
+        .navbar nav ul li {
             display: inline-block;
         }
 
-        nav ul li a {
+        .navbar nav ul li a {
             padding: 10px 20px;
             background: #0044cc;
             border: 2px solid #00ffff;
@@ -94,15 +59,78 @@
             color: #ffffff;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-            text-align: center;
         }
 
-        nav ul li a:hover {
+        .navbar nav ul li a:hover {
             background: #00ffff;
             color: #003366;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
-            border-color: #ffffff;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .navbar nav ul {
+                flex-direction: column; /* Stack items vertically */
+                gap: 10px; /* Add space between stacked items */
+                align-items: flex-start; /* Align items to the left */
+            }
+
+            .navbar nav ul li a {
+                width: 100%; /* Ensure full-width links for smaller screens */
+                text-align: center; /* Center text inside the button */
+            }
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+        }
+
+        .form-container {
+            width: 60%;
+            background-color: #D3D3D3;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            width: 150px;
+            color: #003366;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #00aaff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #0077cc;
         }
 
         .footer {
@@ -111,6 +139,24 @@
             text-align: center;
             padding: 20px;
             margin-top: auto;
+        }
+
+        /* Right side text links */
+        .info-links {
+            margin-top: 20px;
+            color: #003366;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .info-links a {
+            text-decoration: none;
+            color: #003366;
+            font-size: 20px;
+        }
+
+        .info-links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -131,6 +177,97 @@
             </nav>
         </div>
     </header>
+
+    <div class="content">
+        <div class="form-container">
+            <form action="/submit-ticket" method="post">
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="county">County</label>
+                    <input type="text" id="county" name="county" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="local-police-code">Local Police Code</label>
+                    <input type="text" id="local-police-code" name="local-police-code" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="violation-code">Violation Code</label>
+                    <input type="text" id="violation-code" name="violation-code" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="officer-id">Officer ID</label>
+                    <input type="text" id="officer-id" name="officer-id">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <input type="time" id="time" name="time">
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Exact Location</label>
+                    <textarea id="location" name="location" rows="2"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="officer-comments">Officer's Comments</label>
+                    <textarea id="officer-comments" name="officer-comments" rows="2"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="weather">Weather Conditions</label>
+                    <input type="text" id="weather" name="weather">
+                </div>
+
+                <div class="form-group">
+                    <label for="traffic">Traffic Conditions</label>
+                    <input type="text" id="traffic" name="traffic">
+                </div>
+
+                <div class="form-group">
+                    <label for="driver">Were you the driver?</label>
+                    <input type="text" id="driver" name="driver">
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicle">Type of Vehicle</label>
+                    <input type="text" id="vehicle" name="vehicle">
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicle-details">Vehicle Details</label>
+                    <input type="text" id="vehicle-details" name="vehicle-details">
+                </div>
+
+                <div class="form-group">
+                    <label for="prior-violations">Prior Traffic Violations</label>
+                    <label><input type="radio" name="prior-violations" value="yes"> Yes</label>
+                    <label><input type="radio" name="prior-violations" value="no"> No</label>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="info-links">
+            <p>**Create an account to bookmark and save important laws**</p>
+            <a href="#">Login/Sign Up</a>
+        </div>
+    </div>
 
     <footer class="footer">
         <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
