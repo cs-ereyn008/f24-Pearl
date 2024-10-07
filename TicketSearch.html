@@ -89,8 +89,9 @@
         .content {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh; /* Full height */
+            align-items: flex-start; /* Align items at the top */
+            padding: 40px 20px; /* Add padding to give the navbar more room */
+            gap: 20px; /* Space between form and "Create an account" text */
         }
 
         .form-container {
@@ -175,7 +176,42 @@
             color: #ffffff;
             text-align: center;
             padding: 20px;
-            margin-top: auto;
+            margin-top: auto; /* Pushes the footer to the bottom */
+            width: 100%;
+        }
+
+        /* Styling for the "Create an account" section */
+        .info-links {
+            display: inline-block;
+            padding: 10px 30px;
+            background: #00aaff;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+            text-align: center;
+            color: #003366;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .info-links p {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .info-links a {
+            font-size: 18px;
+            color: #ffffff;
+            padding: 10px 20px;
+            background-color: #0044cc;
+            border-radius: 20px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+            display: inline-block;
+        }
+
+        .info-links a:hover {
+            text-decoration: underline;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 1);
         }
 
     </style>
@@ -200,12 +236,10 @@
 
     <div class="content">
         <div class="form-container">
-
             <!-- Form Title -->
             <h2 class="form-title">Enter details about your ticket below</h2>
 
             <form action="/submit-ticket" method="post">
-                
                 <!-- Adding the circled items from the image -->
                 <div class="form-group">
                     <label for="state">State</label>
@@ -291,6 +325,11 @@
             </form>
         </div>
 
+        <!-- Info box to the right of the form -->
+        <div class="info-links">
+            <p>**Create an account to bookmark and save important laws**</p>
+            <a href="#">Login/Sign Up</a>
+        </div>
     </div>
 
     <footer class="footer">
