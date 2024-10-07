@@ -102,7 +102,7 @@
 
         .form-group label {
             font-weight: bold;
-            width: 200px; 
+            width: 300px; /* Adjust label width for better alignment */
             font-size: 18px;
             color: #003366;
         }
@@ -163,33 +163,34 @@
             margin-top: auto;
         }
 
+        /* Box for "Create an account" */
         .info-links {
-            display: inline-block; 
-            padding: 20px;
+            display: inline-block;
+            padding: 10px 30px;  /* Adjusted padding */
             background: #00aaff;
             border-radius: 20px;
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
             text-align: center;
             color: #003366;
             font-weight: bold;
-            font-size: 24px;
-            width: auto;
+            font-size: 20px;  /* Adjusted font size */
             margin: 20px auto;
         }
 
         .info-links p {
-            font-size: 28px;
+            font-size: 22px; /* Adjusted for readability */
             margin-bottom: 10px;
         }
 
         .info-links a {
-            font-size: 26px;
+            font-size: 18px;
             color: #ffffff;
             padding: 10px 20px;
             background-color: #0044cc;
             border-radius: 20px;
             text-decoration: none;
             box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+            display: inline-block; /* Keep button inline */
         }
 
         .info-links a:hover {
@@ -221,64 +222,45 @@
         <div class="form-container">
             <form action="/submit-ticket" method="post">
                 <div class="form-group">
-                    <label for="state">State</label>
-                    <input type="text" id="state" name="state" required>
+                    <label for="location">What was the exact location of the violation? (Street, intersection, etc.)</label>
+                    <input type="text" id="location" name="location" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="county">County</label>
-                    <input type="text" id="county" name="county" required>
+                    <label for="officer-comments">Were there any additional comments or notes written by the officer on the ticket?</label>
+                    <textarea id="officer-comments" name="officer-comments"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="local-police-code">Local Police Code</label>
-                    <input type="text" id="local-police-code" name="local-police-code" required>
+                    <label for="weather">What were the weather conditions at the time of the violation? (Clear, rainy, foggy, etc.)</label>
+                    <input type="text" id="weather" name="weather">
                 </div>
 
                 <div class="form-group">
-                    <label for="violation-code">Violation Code</label>
-                    <input type="text" id="violation-code" name="violation-code" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="officer-id">Officer ID</label>
-                    <input type="text" id="officer-id" name="officer-id">
-                </div>
-
-                <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="time">Time</label>
-                    <input type="time" id="time" name="time">
-                </div>
-
-                <div class="form-group">
-                    <label for="location">Exact Location</label>
-                    <input type="text" id="location" name="location">
-                </div>
-
-                <div class="form-group">
-                    <label for="officer-comments">Officer's Comments</label>
-                    <textarea id="officer-comments" name="officer-comments" rows="2"></textarea>
+                    <label for="traffic">What was the traffic like at the time of the violation? (Heavy, moderate, light)</label>
+                    <input type="text" id="traffic" name="traffic">
                 </div>
 
                 <div class="form-group radio-group">
-                    <label for="driver">Were you the driver?</label>
+                    <label>Were you the driver of the vehicle at the time of the violation?</label>
                     <label><input type="radio" name="driver" value="yes"> Yes</label>
                     <label><input type="radio" name="driver" value="no"> No</label>
                 </div>
 
                 <div class="form-group">
-                    <label for="vehicle">Type of Vehicle</label>
+                    <label for="vehicle">What type of vehicle were you driving? (Car, motorcycle, truck, etc.)</label>
                     <input type="text" id="vehicle" name="vehicle">
                 </div>
 
                 <div class="form-group">
-                    <label for="vehicle-details">Vehicle Details</label>
+                    <label for="vehicle-details">What are your vehicle details? (Make, model, color, etc.)</label>
                     <input type="text" id="vehicle-details" name="vehicle-details">
+                </div>
+
+                <div class="form-group radio-group">
+                    <label>Have you had any prior traffic violations in the past 12 months?</label>
+                    <label><input type="radio" name="prior-violations" value="yes"> Yes</label>
+                    <label><input type="radio" name="prior-violations" value="no"> No</label>
                 </div>
 
                 <div class="form-group">
