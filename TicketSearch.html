@@ -43,7 +43,7 @@
         .navbar nav ul {
             list-style-type: none;
             display: flex;
-            flex-wrap: wrap; /* Allow items to wrap */
+            flex-wrap: wrap;
             gap: 20px;
         }
 
@@ -69,14 +69,14 @@
         /* Media query for smaller screens */
         @media (max-width: 768px) {
             .navbar nav ul {
-                flex-direction: column; /* Stack items vertically */
-                gap: 10px; /* Add space between stacked items */
-                align-items: flex-start; /* Align items to the left */
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
             }
 
             .navbar nav ul li a {
-                width: 100%; /* Ensure full-width links for smaller screens */
-                text-align: center; /* Center text inside the button */
+                width: 100%;
+                text-align: center;
             }
         }
 
@@ -97,12 +97,13 @@
         .form-group {
             display: flex;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             font-weight: bold;
-            width: 150px;
+            width: 200px; 
+            font-size: 18px;
             color: #003366;
         }
 
@@ -110,23 +111,44 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 16px;
         }
 
         textarea {
             resize: vertical;
         }
+        
+        #officer-comments {
+            height: 100px;
+        }
+
+        /* Yes/No Radio Buttons */
+        .form-group.radio-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-group input {
+            width: auto;
+        }
+
+        .radio-group label {
+            width: auto;
+            margin-right: 20px;
+        }
 
         .submit-btn {
             background-color: #00aaff;
             color: #fff;
-            padding: 10px 20px;
+            padding: 15px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             width: 100%;
+            font-size: 18px;
         }
 
         .submit-btn:hover {
@@ -141,7 +163,6 @@
             margin-top: auto;
         }
 
-        /* Right side text links */
         .info-links {
             display: inline-block; 
             padding: 20px;
@@ -153,7 +174,7 @@
             font-weight: bold;
             font-size: 24px;
             width: auto;
-            margin: 20px auto; /* Center the box horizontally */
+            margin: 20px auto;
         }
 
         .info-links p {
@@ -199,7 +220,70 @@
     <div class="content">
         <div class="form-container">
             <form action="/submit-ticket" method="post">
-                <!-- form contents -->
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="county">County</label>
+                    <input type="text" id="county" name="county" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="local-police-code">Local Police Code</label>
+                    <input type="text" id="local-police-code" name="local-police-code" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="violation-code">Violation Code</label>
+                    <input type="text" id="violation-code" name="violation-code" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="officer-id">Officer ID</label>
+                    <input type="text" id="officer-id" name="officer-id">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <input type="time" id="time" name="time">
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Exact Location</label>
+                    <input type="text" id="location" name="location">
+                </div>
+
+                <div class="form-group">
+                    <label for="officer-comments">Officer's Comments</label>
+                    <textarea id="officer-comments" name="officer-comments" rows="2"></textarea>
+                </div>
+
+                <div class="form-group radio-group">
+                    <label for="driver">Were you the driver?</label>
+                    <label><input type="radio" name="driver" value="yes"> Yes</label>
+                    <label><input type="radio" name="driver" value="no"> No</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicle">Type of Vehicle</label>
+                    <input type="text" id="vehicle" name="vehicle">
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicle-details">Vehicle Details</label>
+                    <input type="text" id="vehicle-details" name="vehicle-details">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
             </form>
         </div>
 
