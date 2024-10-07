@@ -46,10 +46,12 @@
             align-items: center;
         }
 
-        /* Add styles for the stoplight image in the navbar */
+        /* Adjust styles for the stoplight image */
         .navbar h1 img {
-            width: 40px; /* Adjust the size of the stoplight image */
+            height: 28px; /* Match the text height */
+            width: auto; /* Keep the aspect ratio */
             margin-left: 10px; /* Add some spacing between the text and the image */
+            vertical-align: middle; /* Align image with text */
         }
 
         nav ul {
@@ -209,7 +211,7 @@
 <body>
 
     <header>
-        <h1>Traffic Tamer <img src="images/stoplight.png" alt="Stoplight"></h1> <!-- Added stoplight image here -->
+        <h1>Traffic Tamer <img src="images/stoplight.png" alt="Stoplight"></h1> <!-- Adjusted stoplight image -->
         <div class="navbar">
             <nav>
                 <ul>
