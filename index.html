@@ -34,7 +34,7 @@
         .navbar {
             display: flex;
             gap: 15px;
-            flex-wrap: wrap; /* Allow the navbar items to wrap when space is limited */
+            flex-wrap: wrap;
         }
 
         .navbar h1 {
@@ -42,13 +42,21 @@
             font-size: 28px;
             font-weight: bold;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Add styles for the stoplight image in the navbar */
+        .navbar h1 img {
+            width: 40px; /* Adjust the size of the stoplight image */
+            margin-left: 10px; /* Add some spacing between the text and the image */
         }
 
         nav ul {
             list-style-type: none;
             display: flex;
             gap: 20px;
-            flex-wrap: wrap; /* Enable wrapping */
+            flex-wrap: wrap;
         }
 
         nav ul li {
@@ -81,7 +89,7 @@
         }
 
         .hero-section img {
-            width: 250px;
+            width: 400px; /* Updated width for the larger logo */
             animation: glow 1.5s infinite alternate;
         }
 
@@ -138,7 +146,7 @@
             display: flex;
             justify-content: space-around;
             padding: 50px;
-            flex-wrap: wrap; /* Ensure cards wrap on smaller screens */
+            flex-wrap: wrap;
         }
 
         .info-section .card {
@@ -148,7 +156,7 @@
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
             text-align: center;
-            margin: 10px; /* Space between cards */
+            margin: 10px;
         }
 
         .info-section .card h3 {
@@ -170,23 +178,22 @@
             flex-shrink: 0;
         }
 
-        /* Media Query for smaller screens */
         @media (max-width: 768px) {
             nav ul {
-                flex-direction: column; /* Stack the nav items vertically on small screens */
+                flex-direction: column;
                 align-items: center;
             }
 
             .cta-button button {
-                width: 100%; /* Full-width button for better visibility on smaller screens */
+                width: 100%;
             }
 
             .hero-text h2 {
-                font-size: 36px; /* Smaller text for smaller screens */
+                font-size: 36px;
             }
 
             .hero-text p {
-                font-size: 18px; /* Adjust paragraph size for smaller screens */
+                font-size: 18px;
             }
 
             .info-section {
@@ -194,7 +201,7 @@
             }
 
             .info-section .card {
-                width: 100%; /* Make the cards full-width on small screens */
+                width: 100%;
             }
         }
     </style>
@@ -202,7 +209,7 @@
 <body>
 
     <header>
-        <h1>Traffic Tamer</h1>
+        <h1>Traffic Tamer <img src="images/stoplight.png" alt="Stoplight"></h1> <!-- Added stoplight image here -->
         <div class="navbar">
             <nav>
                 <ul>
@@ -230,7 +237,7 @@
     <section class="info-section">
         <div class="card">
             <h3>How It Works</h3>
-            <p>Learn how Traffic Tamer can help you understand traffic laws and simplify traffic violations.</p>
+            <p>Traffic Tamer can help you understand traffic laws and simplify traffic violations.</p>
         </div>
         <div class="card">
             <h3>Multi-State Support</h3>
