@@ -43,7 +43,7 @@
         .navbar nav ul {
             list-style-type: none;
             display: flex;
-            flex-wrap: wrap; 
+            flex-wrap: wrap; /* Allow items to wrap */
             gap: 20px;
         }
 
@@ -69,14 +69,14 @@
         /* Media query for smaller screens */
         @media (max-width: 768px) {
             .navbar nav ul {
-                flex-direction: column; 
-                gap: 10px;
-                align-items: flex-start; 
+                flex-direction: column; /* Stack items vertically */
+                gap: 10px; /* Add space between stacked items */
+                align-items: flex-start; /* Align items to the left */
             }
 
             .navbar nav ul li a {
-                width: 100%; 
-                text-align: center; 
+                width: 100%; /* Ensure full-width links for smaller screens */
+                text-align: center; /* Center text inside the button */
             }
         }
 
@@ -141,7 +141,7 @@
             margin-top: auto;
         }
 
-  /* Right side text links */
+        /* Right side text links */
         .info-links {
             display: inline-block; 
             padding: 20px;
@@ -153,7 +153,7 @@
             font-weight: bold;
             font-size: 24px;
             width: auto;
-            margin: 20px auto;
+            margin: 20px auto; /* Center the box horizontally */
         }
 
         .info-links p {
@@ -170,11 +170,12 @@
             text-decoration: none;
             box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
         }
+
         .info-links a:hover {
             text-decoration: underline;
             box-shadow: 0 0 20px rgba(0, 255, 255, 1);
         }
-        
+
     </style>
 </head>
 <body>
@@ -198,72 +199,19 @@
     <div class="content">
         <div class="form-container">
             <form action="/submit-ticket" method="post">
-                <div class="form-group">
-                    <label for="state">State</label>
-                    <input type="text" id="state" name="state" required>
-                </div>
+                <!-- form contents -->
+            </form>
+        </div>
 
-                <div class="form-group">
-                    <label for="county">County</label>
-                    <input type="text" id="county" name="county" required>
-                </div>
+        <div class="info-links">
+            <p>**Create an account to bookmark and save important laws**</p>
+            <a href="#">Login/Sign Up</a>
+        </div>
+    </div>
 
-                <div class="form-group">
-                    <label for="local-police-code">Local Police Code</label>
-                    <input type="text" id="local-police-code" name="local-police-code" required>
-                </div>
+    <footer class="footer">
+        <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
+    </footer>
 
-                <div class="form-group">
-                    <label for="violation-code">Violation Code</label>
-                    <input type="text" id="violation-code" name="violation-code" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="officer-id">Officer ID</label>
-                    <input type="text" id="officer-id" name="officer-id">
-                </div>
-
-                <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="time">Time</label>
-                    <input type="time" id="time" name="time">
-                </div>
-
-                <div class="form-group">
-                    <label for="location">Exact Location</label>
-                    <textarea id="location" name="location" rows="2"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="officer-comments">Officer's Comments</label>
-                    <textarea id="officer-comments" name="officer-comments" rows="2"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="weather">Weather Conditions</label>
-                    <input type="text" id="weather" name="weather">
-                </div>
-
-                <div class="form-group">
-                    <label for="traffic">Traffic Conditions</label>
-                    <input type="text" id="traffic" name="traffic">
-                </div>
-
-                <div class="form-group">
-                    <label for="driver">Were you the driver?</label>
-                    <input type="text" id="driver" name="driver">
-                </div>
-
-                <div class="form-group">
-                    <label for="vehicle">Type of Vehicle</label>
-                    <input type="text" id="vehicle" name="vehicle">
-                </div>
-
-                <div class="form-group">
-                    <label for="vehicle-details">Vehicle Details</label>
-                    <input type="text" id="vehicle-details" name="vehicle-details">
-               
+</body>
+</html>
