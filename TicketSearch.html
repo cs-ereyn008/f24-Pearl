@@ -141,25 +141,44 @@
             margin-top: auto;
         }
 
+        /* Right side text links */
         .info-links {
-            display: inline-block;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 35%;
+            height: auto; 
             background: #00aaff;
             border-radius: 20px;
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
-            padding: 20px;
-            margin-top: 20px;
+            text-align: center;
+            color: #003366;
+            font-weight: bold;
+            font-size: 24px; 
+        }
+
+        .info-links p {
+            font-size: 28px;
+            margin-bottom: 10px;
         }
 
         .info-links a {
+            font-size: 26px;
+            color: #ffffff;
+            padding: 10px 20px;
+            background-color: #0044cc;
+            border-radius: 20px;
             text-decoration: none;
-            color: #003366;
-            font-size: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
         }
 
         .info-links a:hover {
             text-decoration: underline;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 1);
         }
+
     </style>
 </head>
 <body>
@@ -251,29 +270,4 @@
                 <div class="form-group">
                     <label for="vehicle-details">Vehicle Details</label>
                     <input type="text" id="vehicle-details" name="vehicle-details">
-                </div>
-
-                <div class="form-group">
-                    <label for="prior-violations">Prior Traffic Violations</label>
-                    <label><input type="radio" name="prior-violations" value="yes"> Yes</label>
-                    <label><input type="radio" name="prior-violations" value="no"> No</label>
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" class="submit-btn">Submit</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="info-links">
-            <p>**Create an account to bookmark and save important laws**</p>
-            <a href="#">Login/Sign Up</a>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
-    </footer>
-
-</body>
-</html>
+               
