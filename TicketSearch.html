@@ -163,39 +163,13 @@
             margin-top: auto;
         }
 
-        /* Box for "Create an account" */
-        .info-links {
-            display: inline-block;
-            padding: 10px 30px;  /* Adjusted padding */
-            background: #00aaff;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
-            text-align: center;
-            color: #003366;
-            font-weight: bold;
-            font-size: 20px;  /* Adjusted font size */
-            margin: 20px auto;
-        }
 
-        .info-links p {
-            font-size: 22px; /* Adjusted for readability */
-            margin-bottom: 10px;
-        }
-
-        .info-links a {
-            font-size: 18px;
+        .right-side-text {
+            background-color: transparent; 
             color: #ffffff;
-            padding: 10px 20px;
-            background-color: #0044cc;
-            border-radius: 20px;
-            text-decoration: none;
-            box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
-            display: inline-block; /* Keep button inline */
-        }
-
-        .info-links a:hover {
-            text-decoration: underline;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+            align-items: center;
+            text-shadow: 0px 0px 10px #00aaff; /* Apply backlight */
+            padding: 10px 0; 
         }
 
     </style>
@@ -269,9 +243,16 @@
             </form>
         </div>
 
-        <div class="info-links">
-            <p>**Create an account to bookmark and save important laws**</p>
-            <a href="#">Login/Sign Up</a>
+        <!-- Apply backlight effect to text on the right -->
+        <div class="right-side-text">
+            <p>What was the exact location of the violation? (Street, intersection, etc.)</p>
+            <p>Were there any additional comments or notes written by the officer on the ticket?</p>
+            <p>What were the weather conditions at the time of the violation? (Clear, rainy, foggy, etc.)</p>
+            <p>What was the traffic like at the time of the violation? (Heavy, moderate, light)</p>
+            <p>Were you the driver of the vehicle at the time of the violation?</p>
+            <p>What type of vehicle were you driving? (Car, motorcycle, truck, etc.)</p>
+            <p>What are your vehicle details? (Make, model, color, etc.)</p>
+            <p>Have you had any prior traffic violations in the past 12 months?</p>
         </div>
     </div>
 
