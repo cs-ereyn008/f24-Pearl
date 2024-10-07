@@ -21,6 +21,25 @@
             min-height: 100vh;
         }
 
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 18px; 
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #003366; 
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #00aaff; 
+            border-radius: 6px; 
+            border: 3px solid #003366; 
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #00ccff; 
+        }
+
         header {
             background-color: transparent;
             padding: 20px;
@@ -66,24 +85,12 @@
             color: #003366;
         }
 
-        /* Media query for smaller screens */
-        @media (max-width: 768px) {
-            .navbar nav ul {
-                flex-direction: column;
-                gap: 10px;
-                align-items: flex-start;
-            }
-
-            .navbar nav ul li a {
-                width: 100%;
-                text-align: center;
-            }
-        }
-
+        /* Center the content */
         .content {
             display: flex;
-            justify-content: space-between;
-            padding: 40px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height */
         }
 
         .form-container {
@@ -94,6 +101,14 @@
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
         }
 
+        .form-title {
+            text-align: center;
+            font-size: 24px;
+            color: #003366;
+            margin-bottom: 20px;
+            text-shadow: 0px 0px 10px #00aaff;
+        }
+
         .form-group {
             display: flex;
             gap: 10px;
@@ -102,7 +117,7 @@
 
         .form-group label {
             font-weight: bold;
-            width: 300px; 
+            width: 300px;
             font-size: 18px;
             color: #003366;
         }
@@ -158,16 +173,9 @@
         .footer {
             background-color: #003366;
             color: #ffffff;
+            text-align: center;
             padding: 20px;
             margin-top: auto;
-        }
-
-        /* Right-side text */
-        .right-side-text {
-            background-color: transparent; 
-            color: #ffffff;
-            text-shadow: 0px 0px 10px #00aaff; /* Apply backlight */
-            padding: 10px 0; 
         }
 
     </style>
@@ -192,6 +200,10 @@
 
     <div class="content">
         <div class="form-container">
+
+            <!-- Form Title -->
+            <h2 class="form-title">Enter details about your ticket below</h2>
+
             <form action="/submit-ticket" method="post">
                 
                 <!-- Adding the circled items from the image -->
