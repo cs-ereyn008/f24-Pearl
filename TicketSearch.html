@@ -102,7 +102,7 @@
 
         .form-group label {
             font-weight: bold;
-            width: 300px; /* Adjust label width for better alignment */
+            width: 300px; 
             font-size: 18px;
             color: #003366;
         }
@@ -120,7 +120,7 @@
         textarea {
             resize: vertical;
         }
-        
+
         #officer-comments {
             height: 100px;
         }
@@ -163,11 +163,10 @@
             margin-top: auto;
         }
 
-
+        /* Right-side text */
         .right-side-text {
             background-color: transparent; 
             color: #ffffff;
-            align-items: center;
             text-shadow: 0px 0px 10px #00aaff; /* Apply backlight */
             padding: 10px 0; 
         }
@@ -195,6 +194,44 @@
     <div class="content">
         <div class="form-container">
             <form action="/submit-ticket" method="post">
+                
+                <!-- Adding the circled items from the image -->
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="county">County</label>
+                    <input type="text" id="county" name="county" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="local-police-code">Local Police Code</label>
+                    <input type="text" id="local-police-code" name="local-police-code" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="violation-code">Violation Code</label>
+                    <input type="text" id="violation-code" name="violation-code" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="officer-id">Officer ID</label>
+                    <input type="text" id="officer-id" name="officer-id">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <input type="time" id="time" name="time">
+                </div>
+
+                <!-- Other questions -->
                 <div class="form-group">
                     <label for="location">What was the exact location of the violation? (Street, intersection, etc.)</label>
                     <input type="text" id="location" name="location" required>
@@ -243,17 +280,6 @@
             </form>
         </div>
 
-        <!-- Apply backlight effect to text on the right -->
-        <div class="right-side-text">
-            <p>What was the exact location of the violation? (Street, intersection, etc.)</p>
-            <p>Were there any additional comments or notes written by the officer on the ticket?</p>
-            <p>What were the weather conditions at the time of the violation? (Clear, rainy, foggy, etc.)</p>
-            <p>What was the traffic like at the time of the violation? (Heavy, moderate, light)</p>
-            <p>Were you the driver of the vehicle at the time of the violation?</p>
-            <p>What type of vehicle were you driving? (Car, motorcycle, truck, etc.)</p>
-            <p>What are your vehicle details? (Make, model, color, etc.)</p>
-            <p>Have you had any prior traffic violations in the past 12 months?</p>
-        </div>
     </div>
 
     <footer class="footer">
