@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,21 +24,21 @@
 
         /* Custom scrollbar styles */
         ::-webkit-scrollbar {
-            width: 18px; 
+            width: 18px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #003366; 
+            background: #003366;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #00aaff; 
-            border-radius: 6px; 
-            border: 3px solid #003366; 
+            background-color: #00aaff;
+            border-radius: 6px;
+            border: 3px solid #003366;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background-color: #00ccff; 
+            background-color: #00ccff;
         }
 
         header {
@@ -55,20 +56,19 @@
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
-            align-items: center; 
+            align-items: center;
         }
 
         .navbar h1 {
             color: #ffffff;
             font-size: 28px;
             font-weight: bold;
-            letter-spacing: 1px;
             display: flex;
             align-items: center;
         }
 
         .navbar h1 img {
-            height: 12px; 
+            height: 12px;
             width: 15px;
             margin-left: 10px;
             vertical-align: middle;
@@ -101,23 +101,119 @@
         nav ul li a:hover {
             background: #00ffff;
             color: #003366;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
-            border-color: #ffffff;
         }
 
-        .footer {
+        .content {
+            background-color: #ffffff;
+            color: #003366;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #003366;
+            text-shadow: 0px 0px 10px #00aaff;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #003366;
+        }
+
+        ul {
+            padding-left: 40px;
+            list-style-type: disc;
+        }
+
+        ul ul {
+            padding-left: 20px;
+            list-style-type: circle;
+        }
+
+        footer {
             background-color: #003366;
             color: #ffffff;
             text-align: center;
             padding: 20px;
             margin-top: auto;
         }
+
+        .question-section {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .question-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .question-buttons input[type="button"] {
+            padding: 10px 20px;
+            background: #0044cc;
+            border: 2px solid #00ffff;
+            border-radius: 20px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .question-buttons input[type="button"]:hover {
+            background: #00ffff;
+            color: #003366;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .buttons input[type="submit"],
+        .buttons input[type="reset"] {
+            padding: 10px 20px;
+            background: #0044cc;
+            border: 2px solid #00ffff;
+            border-radius: 20px;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .buttons input[type="submit"]:hover,
+        .buttons input[type="reset"]:hover {
+            background: #00ffff;
+            color: #003366;
+        }
     </style>
 </head>
+
 <body>
 
     <header>
-        <h1><img src="images/TinyStoplight.png" alt="Stoplight"> Traffic Tamer</h1> 
+        <h1><img src="images/TinyStoplight.png" alt="Stoplight"> Traffic Tamer</h1>
         <div class="navbar">
             <nav>
                 <ul>
@@ -132,9 +228,66 @@
         </div>
     </header>
 
-    <footer class="footer">
+    <div class="content">
+        <h2 class="section-title">Violation: Speeding in a Residential Zone</h2>
+        <p><strong>Legal Text:</strong> State Law Code 46.2-878: Speed Limits in Residential Areas</p>
+        <p>(a) It shall be unlawful for any person to drive a motor vehicle on the highways of the Commonwealth at a speed in excess of twenty-five miles per hour in a business or residential district when the applicable speed limit is not otherwise indicated by signs.</p>
+        <p>(b) A violation of this section shall constitute a traffic infraction punishable by a fine of not more than $200 for a first offense and $500 for a second or subsequent offense.</p>
+
+        <h3 class="section-subtitle">Simplified Explanation:</h3>
+        <ul>
+            <li><strong>Speed Limit:</strong> In residential areas, the speed limit is set to 25 mph unless signs indicate otherwise. This is to ensure the safety of residents, pedestrians, and children who may be playing in the area.</li>
+            <li><strong>Penalties:</strong> If you are caught driving faster than 25 mph in a residential zone:
+                <ul>
+                    <li>For the first offense, you may be fined up to $200.</li>
+                    <li>For any additional offenses, the fine can go up to $500.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3 class="section-subtitle">What You Should Do:</h3>
+        <ul>
+            <li>Always check for speed limit signs when driving in residential areas.</li>
+            <li>Maintain a speed of 25 mph or lower if no signs are present.</li>
+            <li>If you receive a ticket for speeding, you can choose to pay the fine or contest it in court.</li>
+        </ul>
+
+        <div class="question-section">
+            <div class="question">
+                <label>Do you understand this law and the associated penalties?</label>
+                <div class="question-buttons">
+                    <input type="button" value="Yes">
+                    <input type="button" value="No">
+                </div>
+            </div>
+
+            <div class="question">
+                <label>Would you like to see examples of common defenses used in court for this type of violation?</label>
+                <div class="question-buttons">
+                    <input type="button" value="Yes">
+                    <input type="button" value="No">
+                </div>
+            </div>
+
+            <div class="question">
+                <label>Do you need information on how to contest this ticket in court?</label>
+                <div class="question-buttons">
+                    <input type="button" value="Yes">
+                    <input type="button" value="No">
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <input type="submit" value="Submit New Search">
+            <input type="reset" value="Update Information">
+        </div>
+    </div>
+
+    <footer>
         <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
     </footer>
 
 </body>
+
 </html>
