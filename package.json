@@ -1,0 +1,23 @@
+{
+  "name": "f24-pearl",
+  "version": "1.0.0",
+  "description": "Team Pearl - Fall 2024",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cs-ereyn008/f24-Pearl.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cs-ereyn008/f24-Pearl/issues"
+  },
+  "homepage": "https://github.com/cs-ereyn008/f24-Pearl#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
