@@ -91,14 +91,29 @@
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
             border-color: #ffffff;
         }   background: #003399;
-        .info-box {
-            background: #ffffff;
-            color: #003366;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    .info-box {
+        background: linear-gradient(to right, #e6f7ff, #ffffff);
+        color: #003366;
+        padding: 30px;
+        border-radius: 15px;
+        margin: 20px auto;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        max-width: 800px;
+        text-align: center;
+    }
+
+    .info-title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #0044cc;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .info-box p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
     </style>
 </head>
 <body>
@@ -118,7 +133,7 @@
         </div>
     </header>
     <div class="info-box">
-        <h2>How It Works</h2>
+        <h2 class="info-title">How It Works</h2>
         <p>Traffic Tamer simplifies traffic laws across states by providing a unified platform for users to search for traffic tickets, understand the laws, and take necessary actions. Our system integrates with various state databases to provide accurate and up-to-date information.</p>
     </div>
     <footer class="footer">
