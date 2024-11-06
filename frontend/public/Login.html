@@ -21,25 +21,6 @@
             min-height: 100vh;
         }
 
-        /* Custom scrollbar styles */
-        ::-webkit-scrollbar {
-            width: 18px; 
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #003366; 
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #00aaff; 
-            border-radius: 6px; 
-            border: 3px solid #003366; 
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #00ccff; 
-        }
-
         header {
             background-color: transparent;
             padding: 20px;
@@ -49,13 +30,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
         }
 
         .navbar {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
-            align-items: center; 
+            align-items: center;
         }
 
         .navbar h1 {
@@ -68,7 +50,7 @@
         }
 
         .navbar h1 img {
-            height: 12px; 
+            height: 12px;
             width: 15px;
             margin-left: 10px;
             vertical-align: middle;
@@ -82,10 +64,6 @@
             align-items: center;
         }
 
-        nav ul li {
-            display: inline-block;
-        }
-
         nav ul li a {
             padding: 10px 20px;
             background: #0044cc;
@@ -95,7 +73,6 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-            text-align: center;
         }
 
         nav ul li a:hover {
@@ -105,32 +82,90 @@
             border-color: #ffffff;
         }
 
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .login-box {
+            background-color: #f0f0f0;
+            color: #000;
+            border-radius: 20px;
+            padding: 30px;
+            width: 400px; /* Wider box */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .login-box h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .login-box a {
+            color: #0044cc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .login-box a:hover {
+            text-decoration: underline;
+        }
+
         .footer {
             background-color: #003366;
             color: #ffffff;
             text-align: center;
             padding: 20px;
-            margin-top: auto;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1><img src="images/TinyStoplight.png" alt="Stoplight"> Traffic Tamer</h1> 
+        <h1><img src="images/TinyStoplight.png" alt="Stoplight"> Traffic Tamer</h1>
         <div class="navbar">
             <nav>
                 <ul>
-                    <li><a href="https://cs-ereyn008.github.io/f24-Pearl/frontend/public/">Home</a></li>
-                    <li><a href="https://cs-ereyn008.github.io/f24-Pearl/frontend/public/TicketSearch.html">Ticket Search</a></li>
-                    <li><a href="https://cs-ereyn008.github.io/f24-Pearl/frontend/public/HowItWorks.html">How It Works</a></li>
-                    <li><a href="https://cs-ereyn008.github.io/f24-Pearl/frontend/public/FAQ.html">FAQ</a></li>
-                    <li><a href="https://cs-ereyn008.github.io/f24-Pearl/frontend/public/ContactUs.html">Contact Us</a></li>
-                    <li><a href="https://cs-ereyn008.github.io/f24-Pearl/frontend/public/Account.html">Login/Sign Up</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="TicketSearch.html">Ticket Search</a></li>
+                    <li><a href="HowItWorks.html">How It Works</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="ContactUs.html">Contact Us</a></li>
+                    <li><a href="Login.html">Login/Sign Up</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2>LOGIN</h2>
+            <form action="/login" method="post">
+                <label for="username">Username/Email</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <div>
+                    <a href="ForgotUsername.html">Forgot Username</a> / <a href="ForgotPassword.htm">Forgot Password</a><br>
+                    <a href="SignUp.html">Create Account</a>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <footer class="footer">
         <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
