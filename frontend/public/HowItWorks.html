@@ -92,28 +92,37 @@
             border-color: #ffffff;
         }
         
-    .info-box {
-        background-color: #ffffff;
-        color: #003366;
-        padding: 20px;
-        border-radius: 10px;
-        margin: 20px auto;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        max-width: 800px;
-        text-align: left; /* Match original left alignment */
-    }
+        .info-box {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            text-align: left;
+        }
 
-    .info-title {
-        font-size: 24px;
-        font-weight: bold;
-        color: #003366;
-        margin-bottom: 10px;
-    }
+        .info-box h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #00ffff;
+            margin-bottom: 30px;
+        }
 
-    .info-box p {
-        font-size: 16px;
-        line-height: 1.5;
-    }
+        .info-box p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background-color: #003366;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -132,10 +141,10 @@
             </nav>
         </div>
     </header>
-    <div class="info-box">
+    <section class="info-box">
         <h2>How It Works</h2>
         <p>Traffic Tamer simplifies traffic laws across states by providing a unified platform for users to search for traffic tickets, understand the laws, and take necessary actions. Our system integrates with various state databases to provide accurate and up-to-date information.</p>
-    </div>
+    </section>
     <footer class="footer">
         <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
     </footer>
