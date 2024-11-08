@@ -18,4 +18,13 @@ services:
       volumes:
         - ./frontend:/usr/src/app
 
+  databse:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3000"
+    volumes:
+      - ./database/DjangoWork:/usr/src/app
+      - ./database/DjangoWork/db.sqlite3:/usr/src/app/db.sqlite3
 
