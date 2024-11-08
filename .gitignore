@@ -23,3 +23,6 @@ gradle-app.setting
 node_modules/**
 .env
 .vscode
+
+backend/node_modules
+frontend/node_modules

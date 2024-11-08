@@ -1,9 +1,40 @@
 const express = require('express');
+const axios = require('axios');
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/', (req,res) => {
 	res.send('Hello World from backend!');
+});
+
+app.get('/api/users', async (req, res) => {
+	try {
+		const response = await axios.get('http://127.0.0.1:8000/users/');
+		res.json(response.data);
+	} catch (error){
+		console.error(error);
+		res.status(500).send('server Error');
+	}
+});
+
+app.get('/api/trafficlaws', async (req, res) => {
+	try {
+		const response = await axios.get('http://127.0.0.1:8000/trafficlaws/');
+		res.json(response.data);
+	} catch (error){
+		console.error(error);
+		res.status(500).send('server Error');
+	}
+});
+
+app.get('/api/violations', async (req, res) => {
+	try {
+		const response = await axios.get('http://127.0.0.1:8000/violations/');
+		res.json(response.data);
+	} catch (error){
+		console.error(error);
+		res.status(500).send('server Error');
+	}
 });
 
 //Home route
