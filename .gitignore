@@ -20,9 +20,16 @@ gradle-app.setting
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-node_modules/**
+node_modules/
 .env
 .vscode
 
 backend/node_modules
 frontend/node_modules
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+.DS_Store
+
+*.log
