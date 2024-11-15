@@ -143,15 +143,23 @@
         //This is a temporary function to allow for LLM experimentation on the 'How it Works' page.
         //It stores a variable in sessionStorage when the page loads
         //Inspect the page, go to 'Application', 'Session Storage' and manually edit the value to '1' 
-        //This will reveal the LLM legal translation form I'm working on. -Gavin
+        //Reload the page and it will reveal the LLM legal translation form I'm working on. -Gavin
         document.addEventListener('DOMContentLoaded', function () {
             //checks if the variable already exists
             if (!sessionStorage.getItem('LLMFormActive')) {
-                //stores new variable in sessionStorage
+                //If it doesn't, instantiate it at 0 in sessionStorage
                 sessionStorage.setItem('LLMFormActive', '0');
             }
         });
     </script>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
 
 </head>
 
@@ -177,7 +185,8 @@
             traffic tickets, understand the laws, and take necessary actions. Our system integrates with various state
             databases to provide accurate and up-to-date information.</p>
     </section>
-    <!-- ---------Below is only visible after manually changing sessionStorage variable 'LLMFormActive' to 1---------------- -->
+
+    <!-----------Below is only visible after manually changing sessionStorage variable 'LLMFormActive' to 1------------------>
     <title>Legal Text Simplifier</title>
     <style>
         body {
@@ -217,7 +226,7 @@
         }
     </style>
     <script>
-        //check session storage on page load
+        // Check session storage on page load
         document.addEventListener('DOMContentLoaded', function () {
             // Check if the session storage variable is set to '1'
             if (sessionStorage.getItem('LLMFormActive') === '1') {
@@ -235,53 +244,59 @@
             <div id="result"></div>
         </div>
     </body>
-    <!-- ---------Above is only visible after manually changing sessionStorage variable 'LLMFormActive' to 1---------------- -->
+    <!-----------Above is only visible after manually changing sessionStorage variable 'LLMFormActive' to 1------------------>
     <footer class="footer">
         <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
     </footer>
 
-    <!-- ---------Below is the text translation API call---------------- -->
-    <script>
-        // Display LLM form if session storage variable is set to '1'
-        document.addEventListener('DOMContentLoaded', function () {
-            if (sessionStorage.getItem('LLMFormActive') === '1') {
-                document.querySelector('.container').style.display = 'block';
-            }
+    <!-----------Below is the text translation API call------------------>
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+
+        const API_KEY = "AIzaSyAJ5V8TLrhIku0e9maZwu3x4FGvbJFVg7A";
+        const genAI = new GoogleGenerativeAI(API_KEY);
+
+        const model = genAI.getGenerativeModel({
+            model: "gemini-1.5-flash",
         });
 
-        const API_URL = "https://api-inference.huggingface.co/models/saul-ai/SaulLM-7B";
-        const API_KEY = "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";
-
-        async function simplifyText(text) {
-            const response = await fetch(API_URL, {
-                method: "POST",
-                headers: {
-                    Authorization: `Bearer ${API_KEY}`,
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ inputs: text }),
-            });
-
-            const result = await response.json();
-            if (result && result[0] && result[0].generated_text) {
-                return result[0].generated_text;
-            } else {
-                throw new Error("Error simplifying text");
-            }
-        }
+        const generationConfig = {
+            temperature: 1,
+            topP: 0.95,
+            topK: 40,
+            maxOutputTokens: 800, //8192 was the default
+            responseMimeType: "text/plain",
+        };
 
         document.getElementById("simplify-button").addEventListener("click", async () => {
             const textInput = document.getElementById("legal-text").value;
-            document.getElementById("result").innerText = "Processing...";
+
+            //This text prepends all requests sent in the 'simplifier' text box
+            const formattedInput = `Please summarize the following:\n\n${textInput}`;
+
+            // Show processing message
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerText = "Processing...";
+
             try {
-                const simplifiedText = await simplifyText(textInput);
-                document.getElementById("result").innerText = simplifiedText;
+                // Start a chat session and send the input text with the prompt
+                const chatSession = model.startChat({
+                    generationConfig,
+                    history: [],
+                });
+
+                const result = await chatSession.sendMessage(formattedInput);
+
+                // Display the simplified text
+                resultDiv.innerText = result.response.text();
             } catch (error) {
                 console.error("Error:", error);
-                document.getElementById("result").innerText = "Error processing text";
+                resultDiv.innerText = "Error processing text. Please try again.";
             }
         });
+
     </script>
+    <!-----------Above is the text translation API call------------------>
 
 </body>
 
