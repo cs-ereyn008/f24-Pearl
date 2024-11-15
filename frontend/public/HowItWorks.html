@@ -140,10 +140,12 @@
     </style>
 
     <script>
+        //LLM API CALL NOTES/COMMENTS
         //This is a temporary function to allow for LLM experimentation on the 'How it Works' page.
         //It stores a variable in sessionStorage when the page loads
         //Inspect the page, go to 'Application', 'Session Storage' and manually edit the value to '1' 
         //Reload the page and it will reveal the LLM legal translation form I'm working on. -Gavin
+        //You may need to enter 'npm install @google/generative-ai' in your dev environment to make this work for you (?)
         document.addEventListener('DOMContentLoaded', function () {
             //checks if the variable already exists
             if (!sessionStorage.getItem('LLMFormActive')) {
@@ -229,7 +231,7 @@
         // Check session storage on page load
         document.addEventListener('DOMContentLoaded', function () {
             // Check if the session storage variable is set to '1'
-            if (sessionStorage.getItem('LLMFormActive') === '1') {
+            if (sessionStorage.getItem('LLMFormActive') === '1') {  // If it is, display the text simplification box
                 document.querySelector('.container').style.display = 'block';
             }
         });
@@ -297,7 +299,6 @@
 
     </script>
     <!-----------Above is the text translation API call------------------>
-
 </body>
 
 </html>
