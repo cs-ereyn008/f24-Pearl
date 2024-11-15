@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models # type: ignore
 
 # Create User Data Model
 class User(models.Model):
@@ -21,14 +21,13 @@ class TrafficLaw(models.Model):
     def __str__(self):
         return
     
-# Create Traffic Violation Model
 class Violation(models.Model):
     violation_code = models.CharField(max_length=10, unique=True)
     violation_law = models.ForeignKey(TrafficLaw, on_delete=models.CASCADE, related_name='violations')
     penalty = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
-        return self.violation
+        return self.violation_code
     
 # Create bookmark model
 class Bookmark(models.Model):
@@ -36,4 +35,4 @@ class Bookmark(models.Model):
     violation = models.ForeignKey(Violation, on_delete=models.CASCADE, related_name='bookmarks')
 
     def __str__(self):
-        return self.violation
+        return str(self.violation)
