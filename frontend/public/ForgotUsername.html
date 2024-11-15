@@ -12,7 +12,7 @@
             box-sizing: border-box;
             font-family: 'Roboto', sans-serif;
         }
-
+    
         body {
             background: linear-gradient(to bottom, #89CFF0, #003366);
             color: #ffffff;
@@ -20,7 +20,7 @@
             flex-direction: column;
             min-height: 100vh;
         }
-
+    
         header {
             background-color: transparent;
             padding: 20px;
@@ -32,14 +32,14 @@
             align-items: center;
             width: 100%;
         }
-
+    
         .navbar {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             align-items: center;
         }
-
+    
         .navbar h1 {
             color: #ffffff;
             font-size: 28px;
@@ -48,12 +48,43 @@
             display: flex;
             align-items: center;
         }
-
+    
         .navbar h1 img {
             height: 12px;
             width: 15px;
             margin-left: 10px;
             vertical-align: middle;
+        }
+    
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+    
+        nav ul li {
+            display: inline-block;
+        }
+    
+        nav ul li a {
+            padding: 10px 20px;
+            background: #0044cc;
+            border: 2px solid #00ffff;
+            border-radius: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            text-align: center;
+        }
+    
+        nav ul li a:hover {
+            background: #00ffff;
+            color: #003366;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+            border-color: #ffffff;
         }
 
         .forgot-username-container {
