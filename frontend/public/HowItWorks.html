@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             box-sizing: border-box;
             font-family: 'Roboto', sans-serif;
         }
+
         body {
             background: linear-gradient(to bottom, #89CFF0, #003366);
             color: #ffffff;
@@ -19,21 +21,26 @@
             flex-direction: column;
             min-height: 100vh;
         }
+
         /* Custom scrollbar styles */
         ::-webkit-scrollbar {
-            width: 18px; 
+            width: 18px;
         }
+
         ::-webkit-scrollbar-track {
-            background: #003366; 
+            background: #003366;
         }
+
         ::-webkit-scrollbar-thumb {
-            background-color: #00aaff; 
-            border-radius: 6px; 
-            border: 3px solid #003366; 
+            background-color: #00aaff;
+            border-radius: 6px;
+            border: 3px solid #003366;
         }
+
         ::-webkit-scrollbar-thumb:hover {
-            background-color: #00ccff; 
+            background-color: #00ccff;
         }
+
         header {
             background-color: transparent;
             padding: 20px;
@@ -44,12 +51,14 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .navbar {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
-            align-items: center; 
+            align-items: center;
         }
+
         .navbar h1 {
             color: #ffffff;
             font-size: 28px;
@@ -58,12 +67,14 @@
             display: flex;
             align-items: center;
         }
+
         .navbar h1 img {
-            height: 12px; 
+            height: 12px;
             width: 15px;
             margin-left: 10px;
             vertical-align: middle;
         }
+
         nav ul {
             list-style-type: none;
             display: flex;
@@ -71,9 +82,11 @@
             flex-wrap: wrap;
             align-items: center;
         }
+
         nav ul li {
             display: inline-block;
         }
+
         nav ul li a {
             padding: 10px 20px;
             background: #0044cc;
@@ -85,13 +98,14 @@
             box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
             text-align: center;
         }
+
         nav ul li a:hover {
             background: #00ffff;
             color: #003366;
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
             border-color: #ffffff;
         }
-        
+
         .info-box {
             background-color: rgba(0, 0, 0, 0.6);
             color: #ffffff;
@@ -125,7 +139,33 @@
             box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.3);
         }
     </style>
+
+    <script>
+        //LLM API CALL NOTES/COMMENTS
+        //This is a temporary function to allow for LLM experimentation on the 'How it Works' page.
+        //It stores a variable in sessionStorage when the page loads
+        //Inspect the page, go to 'Application', 'Session Storage' and manually edit the value to '1' 
+        //Reload the page and it will reveal the LLM legal translation form I'm working on. -Gavin
+        //You may need to enter 'npm install @google/generative-ai' in your dev environment to make this work for you (?)
+        document.addEventListener('DOMContentLoaded', function () {
+            //checks if the variable already exists
+            if (!sessionStorage.getItem('LLMFormActive')) {
+                //If it doesn't, instantiate it at 0 in sessionStorage
+                sessionStorage.setItem('LLMFormActive', '0');
+            }
+        });
+    </script>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+
 </head>
+
 <body>
     <header>
         <h1><img src="images/TinyStoplight.png" alt="Stoplight"> Traffic Tamer</h1>
@@ -144,11 +184,127 @@
     </header>
     <section class="info-box">
         <h2>How It Works</h2>
+      
+        <p>Traffic Tamer simplifies traffic laws across states by providing a unified platform for users to search for
+            traffic tickets, understand the laws, and take necessary actions. Our system integrates with various state
+            databases to provide accurate and up-to-date information.</p>
+    </section>
+
+    <!-----------Below is only visible after manually changing sessionStorage variable 'LLMFormActive' to 1------------------>
+    <title>Legal Text Simplifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+            /* this keeps it hidden initially */
+        }
+
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            white-space: pre-wrap;
+        }
+    </style>
+    <script>
+        // Check session storage on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if the session storage variable is set to '1'
+            if (sessionStorage.getItem('LLMFormActive') === '1') {  // If it is, display the text simplification box
+                document.querySelector('.container').style.display = 'block';
+            }
+        });
+    </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1 style="color: black;">Legal Text Simplifier</h1>
+            <textarea id="legal-text" rows="6" placeholder="Enter legal text here..."></textarea>
+            <button id="simplify-button">Simplify Text</button>
+            <div id="result"></div>
+        </div>
+    </body>
+    <!-----------Above is only visible after manually changing sessionStorage variable 'LLMFormActive' to 1------------------>
         <p>The Traffic Tamer system simplifies complex traffic laws across states, presenting them in an understandable and accessible format. Our platform empowers users to search for traffic-related information, understand laws in their state, and take appropriate actions.</p>
         <p>Our system integrates with state databases to provide accurate and up-to-date information, helping users stay informed and comprehend the consequences of various traffic violations.</p>
     </section>
+
     <footer class="footer">
         <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
     </footer>
+
+    <!-----------Below is the text translation API call------------------>
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+
+        const API_KEY = "AIzaSyAJ5V8TLrhIku0e9maZwu3x4FGvbJFVg7A";
+        const genAI = new GoogleGenerativeAI(API_KEY);
+
+        const model = genAI.getGenerativeModel({
+            model: "gemini-1.5-flash",
+        });
+
+        const generationConfig = {
+            temperature: 1,
+            topP: 0.95,
+            topK: 40,
+            maxOutputTokens: 800, //8192 was the default
+            responseMimeType: "text/plain",
+        };
+
+        document.getElementById("simplify-button").addEventListener("click", async () => {
+            const textInput = document.getElementById("legal-text").value;
+
+            //This text prepends all requests sent in the 'simplifier' text box
+            const formattedInput = `Please summarize the following:\n\n${textInput}`;
+
+            // Show processing message
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerText = "Processing...";
+
+            try {
+                // Start a chat session and send the input text with the prompt
+                const chatSession = model.startChat({
+                    generationConfig,
+                    history: [],
+                });
+
+                const result = await chatSession.sendMessage(formattedInput);
+
+                // Display the simplified text
+                resultDiv.innerText = result.response.text();
+            } catch (error) {
+                console.error("Error:", error);
+                resultDiv.innerText = "Error processing text. Please try again.";
+            }
+        });
+
+    </script>
+    <!-----------Above is the text translation API call------------------>
 </body>
+
 </html>
