@@ -1,1 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Tamer - Forgot Username</title>
+    <link rel="icon" href="images/stoplight.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+    
+        body {
+            background: linear-gradient(to bottom, #89CFF0, #003366);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    
+        header {
+            background-color: transparent;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    
+        .navbar {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+    
+        .navbar h1 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+    
+        .navbar h1 img {
+            height: 12px;
+            width: 15px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+    
+        nav ul li {
+            display: inline-block;
+        }
+    
+        nav ul li a {
+            padding: 10px 20px;
+            background: #0044cc;
+            border: 2px solid #00ffff;
+            border-radius: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            text-align: center;
+        }
+    
+        nav ul li a:hover {
+            background: #00ffff;
+            color: #003366;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+            border-color: #ffffff;
+        }
 
+        .forgot-username-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .forgot-username-box {
+            background-color: #f0f0f0;
+            color: #000;
+            border-radius: 20px;
+            padding: 30px;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .forgot-username-box h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .forgot-username-box p {
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .forgot-username-box input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .forgot-username-box button {
+            padding: 10px 20px;
+            background: #0044cc;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .forgot-username-box button:hover {
+            background: #00ffff;
+            color: #003366;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+
+        .forgot-username-box .links {
+            margin-top: 15px;
+        }
+
+        .forgot-username-box .links a {
+            color: #0044cc;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        .forgot-username-box .links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background-color: #003366;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><img src="images/TinyStoplight.png" alt="Stoplight"> Traffic Tamer</h1>
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="TicketSearch.html">Ticket Search</a></li>
+                    <li><a href="HowItWorks.html">How It Works</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="ContactUs.html">Contact Us</a></li>
+                    <li><a href="Login.html">Login/Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="forgot-username-container">
+        <div class="forgot-username-box">
+            <h2>Forgot Username</h2>
+            <p>Enter your email address below to receive your username.</p>
+            <form action="/forgot-username" method="post">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Send Username</button>
+            </form>
+            <div class="links">
+                <a href="SignUp.html">Create Account</a>
+                <a href="ForgotPassword.html">Forgot Password</a>
+                <a href="Login.html">Sign in</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
+    </footer>
+
+</body>
+</html>
