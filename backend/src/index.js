@@ -71,18 +71,18 @@ app.get('/bookmarks', (req, res) => {
 //user feedback route
 app.post('/feedback', (req, res) => {
 	res.send('Thank you for your feedback!');
-});
+});*/
 
 //How it works route
 app.get('/howItWorks', (req, res) => {
 	res.send('How it works');
-	res.sendFile(path.join(__dirname, 'frontend/public/HowItWorks.html'));
+	res.sendFile(path.join(__dirname, '../../frontend/public/HowItWorks.html'));
 });
 
 //contact route
-app.get('/contact', (req, res) => {
+/*app.get('/contact', (req, res) => {
 	res.send('Contact us for more information or assistance');
-	res.sendFile(path.join(__dirname, 'frontend/public/ContactUs.html'));
+	res.sendFile(path.join(__dirname, '../../frontend/public/ContactUs.html'));
 });
 
 //legal updates route
