@@ -55,6 +55,12 @@ app.get('/login', (req, res) => {
 	res.sendFile(path.join(__dirname, '../../frontend/public/Login.html'));
 });
 
+//sign up route
+app.get('/signUp', (req, res) => {
+	res.send('Sign Up for Traffic Tamer');
+	res.sendFile(path.join(__dirname, '../../frontend/public/SignUp.html'));
+});
+
 ///state-specifc traffic law route
 /*app.get('/laws/:state', (req, res) => {
 	const state = req.params.state;
