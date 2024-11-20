@@ -43,6 +43,17 @@ app.get('/api/violations', async (req, res) => {
 	}
 });
 
+//User routes
+app.get('/user', (req, res) => {
+	console.log('Create New User');
+	res.send('Create New User');
+});
+
+app.delete('/user', (req, res) => {
+	console.log('Delete User');
+	res.send('Delete user');
+});
+
 //Frequently asked questions route
 app.get('/faqs', (req, res) => {
 	//res.send('Frequently Asked Questions about traffic laws');
