@@ -49,6 +49,12 @@ app.get('/faqs', (req, res) => {
 	res.sendFile(path.join(__dirname, '../../frontend/public/FAQ.html'));
 });
 
+//login route
+app.get('/login', (req, res) => {
+	res.send('Login into Traffic Tamer');
+	res.sendFile(path.join(__dirname, '../../frontend/public/Login.html'));
+});
+
 ///state-specifc traffic law route
 /*app.get('/laws/:state', (req, res) => {
 	const state = req.params.state;
@@ -60,8 +66,6 @@ app.get('/search', (req, res) => {
 	const query = req.query.q;
 	res.send(`Search results for: ${query}`);
 });
-
-
 
 //Bookmark route
 app.get('/bookmarks', (req, res) => {
