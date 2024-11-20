@@ -65,21 +65,21 @@ app.get('/signUp', (req, res) => {
 /*app.get('/laws/:state', (req, res) => {
 	const state = req.params.state;
 	res.send(`Traffic laws for ${state}`);
-});
+});*/
 
 //search route
-app.get('/search', (req, res) => {
+/*app.get('/searchResults', (req, res) => {
 	const query = req.query.q;
 	res.send(`Search results for: ${query}`);
 });
 
 //Bookmark route
-app.get('/bookmarks', (req, res) => {
+/*app.get('/bookmarks', (req, res) => {
 	res.send('Your bookmarked traffic laws');
-});
+});*/
 
 //user feedback route
-app.post('/feedback', (req, res) => {
+/*app.post('/feedback', (req, res) => {
 	res.send('Thank you for your feedback!');
 });*/
 
