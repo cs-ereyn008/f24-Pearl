@@ -95,6 +95,12 @@ app.get('/contact', (req, res) => {
 	res.sendFile(path.join(__dirname, '../../frontend/public/ContactUs.html'));
 });
 
+//terms route
+app.get('/terms', (req, res) => {
+	res.send('Terms for Traffic Tamer');
+	res.sendFile(path.join(__dirname, '../../frontend/public/Terms.html'));
+});
+
 //legal updates route
 /*app.get('/updates', (req, res) => {
     res.send('Recent updates in traffic laws');
