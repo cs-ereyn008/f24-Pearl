@@ -44,10 +44,10 @@ app.get('/api/violations', async (req, res) => {
 });
 
 //Frequently asked questions route
-/*app.get('/faqs', (req, res) => {
+app.get('/faqs', (req, res) => {
 	res.send('Frequently Asked Questions about traffic laws');
 	res.sendFile(path.join(__dirname, '../../frontend/public/FAQ.html'));
-});*/
+});
 
 ///state-specifc traffic law route
 /*app.get('/laws/:state', (req, res) => {
