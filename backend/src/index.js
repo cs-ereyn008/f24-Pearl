@@ -80,13 +80,13 @@ app.get('/howItWorks', (req, res) => {
 });
 
 //contact route
-/*app.get('/contact', (req, res) => {
+app.get('/contact', (req, res) => {
 	res.send('Contact us for more information or assistance');
 	res.sendFile(path.join(__dirname, '../../frontend/public/ContactUs.html'));
 });
 
 //legal updates route
-app.get('/updates', (req, res) => {
+/*app.get('/updates', (req, res) => {
     res.send('Recent updates in traffic laws');
 });*/
 
