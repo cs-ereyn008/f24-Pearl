@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, '../../frontend/public')));
 
 //Home route
 app.get('/', (req,res) => {
-	res.send('Hello World from backend!');
+	//res.send('Hello World from backend!');
 	res.sendFile(path.join(__dirname, '../../frontend/public/index.html'));
 });
 
@@ -45,19 +45,19 @@ app.get('/api/violations', async (req, res) => {
 
 //Frequently asked questions route
 app.get('/faqs', (req, res) => {
-	res.send('Frequently Asked Questions about traffic laws');
+	//res.send('Frequently Asked Questions about traffic laws');
 	res.sendFile(path.join(__dirname, '../../frontend/public/FAQ.html'));
 });
 
 //login route
 app.get('/login', (req, res) => {
-	res.send('Login into Traffic Tamer');
+	//res.send('Login into Traffic Tamer');
 	res.sendFile(path.join(__dirname, '../../frontend/public/Login.html'));
 });
 
 //sign up route
 app.get('/signUp', (req, res) => {
-	res.send('Sign Up for Traffic Tamer');
+	//res.send('Sign Up for Traffic Tamer');
 	res.sendFile(path.join(__dirname, '../../frontend/public/SignUp.html'));
 });
 
@@ -85,19 +85,19 @@ app.get('/signUp', (req, res) => {
 
 //How it works route
 app.get('/howItWorks', (req, res) => {
-	res.send('How it works');
+	//res.send('How it works');
 	res.sendFile(path.join(__dirname, '../../frontend/public/HowItWorks.html'));
 });
 
 //contact route
 app.get('/contact', (req, res) => {
-	res.send('Contact us for more information or assistance');
+	//res.send('Contact us for more information or assistance');
 	res.sendFile(path.join(__dirname, '../../frontend/public/ContactUs.html'));
 });
 
 //terms route
 app.get('/terms', (req, res) => {
-	res.send('Terms for Traffic Tamer');
+	//res.send('Terms for Traffic Tamer');
 	res.sendFile(path.join(__dirname, '../../frontend/public/Terms.html'));
 });
 
