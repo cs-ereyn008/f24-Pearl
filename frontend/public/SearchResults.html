@@ -112,7 +112,37 @@
             max-width: 800px;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            overflow-x: hidden;
+            /* Prevent horizontal overflow */
         }
+
+        #result-content {
+            word-wrap: break-word;
+            /* Break long words */
+            overflow-wrap: break-word;
+            /* Break text lines */
+            white-space: pre-wrap;
+            /* Preserve spaces and line breaks */
+            width: 100%;
+            /* Ensure the container fits within its parent */
+            max-width: 100%;
+            /* Prevent the content from exceeding container width */
+            overflow: visible;
+            /* Ensure all text is displayed */
+            padding: 10px;
+            /* Add padding for better readability */
+            border: 1px solid #ccc;
+            /* Optional: Border for clarity */
+            background-color: #f9f9f9;
+            /* Light background for readability */
+            color: #333;
+            /* Darker text for contrast */
+            border-radius: 8px;
+            /* Rounded corners for style */
+            box-sizing: border-box;
+            /* Include padding in width/height calculations */
+        }
+
 
         .section-title {
             font-size: 24px;
@@ -220,7 +250,7 @@
 
     <!-- ---------------------- -->
 
-    <div class="content">
+    <!-- <div class="content">
         <h2 class="section-title">Violation: Speeding in a Residential Zone</h2>
         <p><strong>Legal Text:</strong> State Law Code 46.2-878: Speed Limits in Residential Areas</p>
         <p>(a) It shall be unlawful for any person to drive a motor vehicle on the highways of the Commonwealth at a
@@ -247,13 +277,13 @@
             <li>Always check for speed limit signs when driving in residential areas.</li>
             <li>Maintain a speed of 25 mph or lower if no signs are present.</li>
             <li>If you receive a ticket for speeding, you can choose to pay the fine or contest it in court.</li>
-        </ul>
+        </ul> -->
 
-        <!-- <div class="content">
+    <div class="content">
         <h2 id="result-title">Search Results</h2>
-        <div id="result-content"> -->
-        <!-- Dynamic content will be inserted here -->
-        <!-- </div> -->
+        <div id="result-content">
+            <!-- Dynamic content will be inserted here -->
+        </div>
 
         <!-- ---------------------- -->
 
@@ -312,8 +342,10 @@
                     return response.text();
                 })
                 .then(data => {
+                    // Update the title
+                    resultTitle.innerText = `Search Results for Law ${lawCode}`;
                     // Display the content of the law file
-                    resultContent.innerHTML = `<pre>${data}</pre>`;
+                    resultContent.textContent = data; // Use textContent to preserve text as-is
                 })
                 .catch(error => {
                     // Display an error message if something goes wrong
@@ -324,6 +356,8 @@
             resultContent.innerHTML = '<p class="error">No law code provided. Please try again.</p>';
         }
     </script>
+
+
 
 
 </body>

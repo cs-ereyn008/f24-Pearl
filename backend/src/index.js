@@ -1,25 +1,14 @@
 const express = require('express');
-const axios = require('axios');
-const bodyParser = require('body-parser');
-const path = require('path');
 const fs = require('fs');
+const path = require('path');
+
 const app = express();
-const port = process.env.PORT || 3000;
-
-const { spawn } = require('child_process');
-
-//Middleware for parsing form data (stores searched violation code)
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
-app.use(express.json()); // For parsing application/json
-
-//Serve static files (HTML, CSS, JS, Images)
-app.use(express.static(path.join(__dirname, '../../frontend/public')));
+const port = 3000;
 
 //Runs web scraper on backend start
 //You must issue the commands 'pip install beautifulsoup' and 'pip install schedule' in your terminal
+const { spawn } = require('child_process');
+
 const scraper = spawn('python', ['../database/webscraper_new.py']);
 
 scraper.stdout.on('data', (data) => {
@@ -35,6 +24,7 @@ scraper.on('close', (code) => {
 });
 //End of web scraper code
 
+// Custom route for fetching law text
 app.get('/get-law', (req, res) => {
 	const lawCode = req.query.law; // Get the law code from the query string
 	if (!lawCode) {
@@ -42,21 +32,22 @@ app.get('/get-law', (req, res) => {
 		return;
 	}
 
-	// Format the file name
 	const formattedCode = lawCode.replace(/\./g, '_'); // Replace dots with underscores
 	const filePath = path.join(__dirname, '../traffic_laws', `${formattedCode}_.txt`);
 
 	console.log('Resolved file path:', filePath);
 
-	// Check if the file exists and send its content
 	if (fs.existsSync(filePath)) {
 		const fileContent = fs.readFileSync(filePath, 'utf-8');
+		res.type('text/plain'); // Explicitly set the content type to plain text
 		res.send(fileContent);
 	} else {
 		res.status(404).send(`Error: File not found for law code ${lawCode}.`);
 	}
 });
 
+// Serve static files
+app.use(express.static(path.join(__dirname, '../../frontend/public')));
 
 //Home route
 app.get('/', (req, res) => {
@@ -123,7 +114,41 @@ app.get('/signUp', (req, res) => {
 	res.sendFile(path.join(__dirname, '../../frontend/public/SignUp.html'));
 });
 
-///state-specifc traffic law route
+//How it works route
+app.get('/howItWorks', (req, res) => {
+	//res.send('How it works');
+	res.sendFile(path.join(__dirname, '../../frontend/public/HowItWorks.html'));
+});
+
+//contact route
+app.get('/contact', (req, res) => {
+	//res.send('Contact us for more information or assistance');
+	res.sendFile(path.join(__dirname, '../../frontend/public/ContactUs.html'));
+});
+
+//terms route
+app.get('/terms', (req, res) => {
+	//res.send('Terms for Traffic Tamer');
+	res.sendFile(path.join(__dirname, '../../frontend/public/Terms.html'));
+});
+
+// Catch-all route for debugging
+app.use((req, res) => {
+	console.log(`Unhandled route: ${req.originalUrl}`);
+	res.status(404).send('Route not found.');
+});
+
+app.listen(port, () => {
+	console.log(`Server running at http://localhost:${port}`);
+});
+
+//Old or unused routes
+//legal updates route
+/*app.get('/updates', (req, res) => {
+	res.send('Recent updates in traffic laws');
+});*/
+
+//state-specifc traffic law route
 /*app.get('/laws/:state', (req, res) => {
 	const state = req.params.state;
 	res.send(`Traffic laws for ${state}`);
@@ -144,30 +169,3 @@ app.get('/signUp', (req, res) => {
 /*app.post('/feedback', (req, res) => {
 	res.send('Thank you for your feedback!');
 });*/
-
-//How it works route
-app.get('/howItWorks', (req, res) => {
-	//res.send('How it works');
-	res.sendFile(path.join(__dirname, '../../frontend/public/HowItWorks.html'));
-});
-
-//contact route
-app.get('/contact', (req, res) => {
-	//res.send('Contact us for more information or assistance');
-	res.sendFile(path.join(__dirname, '../../frontend/public/ContactUs.html'));
-});
-
-//terms route
-app.get('/terms', (req, res) => {
-	//res.send('Terms for Traffic Tamer');
-	res.sendFile(path.join(__dirname, '../../frontend/public/Terms.html'));
-});
-
-//legal updates route
-/*app.get('/updates', (req, res) => {
-	res.send('Recent updates in traffic laws');
-});*/
-
-app.listen(port, () => {
-	console.log(`Backend server running on port ${port}`);
-});
