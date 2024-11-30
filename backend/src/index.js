@@ -3,12 +3,30 @@ const axios = require('axios');
 const app = express();
 const port = process.env.PORT || 3000;
 const path = require('path');
+const { spawn } = require('child_process');
 
 //Serve static files (HTML, CSS, JS, Images)
 app.use(express.static(path.join(__dirname, '../../frontend/public')));
 
+//Runs web scraper on backend start
+//You must issue the commands 'pip install beautifulsoup' and 'pip install schedule' in your terminal
+const scraper = spawn('python', ['../database/webscraper_new.py']);
+
+scraper.stdout.on('data', (data) => {
+	console.log(`Scraper Output: ${data}`);
+});
+
+scraper.stderr.on('data', (data) => {
+	console.error(`Scraper Error: ${data}`);
+});
+
+scraper.on('close', (code) => {
+	console.log(`Scraper process exited with code ${code}`);
+});
+//End of web scraper code
+
 //Home route
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
 	//res.send('Hello World from backend!');
 	res.sendFile(path.join(__dirname, '../../frontend/public/index.html'));
 });
@@ -17,7 +35,7 @@ app.get('/api/users', async (req, res) => {
 	try {
 		const response = await axios.get('http://127.0.0.1:8000/users/');
 		res.json(response.data);
-	} catch (error){
+	} catch (error) {
 		console.error(error);
 		res.status(500).send('server Error');
 	}
@@ -27,7 +45,7 @@ app.get('/api/trafficlaws', async (req, res) => {
 	try {
 		const response = await axios.get('http://127.0.0.1:8000/trafficlaws/');
 		res.json(response.data);
-	} catch (error){
+	} catch (error) {
 		console.error(error);
 		res.status(500).send('server Error');
 	}
@@ -37,7 +55,7 @@ app.get('/api/violations', async (req, res) => {
 	try {
 		const response = await axios.get('http://127.0.0.1:8000/violations/');
 		res.json(response.data);
-	} catch (error){
+	} catch (error) {
 		console.error(error);
 		res.status(500).send('server Error');
 	}
@@ -114,7 +132,7 @@ app.get('/terms', (req, res) => {
 
 //legal updates route
 /*app.get('/updates', (req, res) => {
-    res.send('Recent updates in traffic laws');
+	res.send('Recent updates in traffic laws');
 });*/
 
 app.listen(port, () => {

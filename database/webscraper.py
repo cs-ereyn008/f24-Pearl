@@ -40,7 +40,8 @@ def scrape_traffic_laws():
         print(f"Error while fetching data: {e}")
 
 # Schedule the function to run every 12 hours
-schedule.every(12).hours.do(scrape_traffic_laws)
+""" schedule.every(12).hours.do(scrape_traffic_laws) """
+schedule.every(1).minutes.do(scrape_traffic_laws)   # Run each minute for testing purposes
 
 print("Traffic law scraper is running. Press Ctrl+C to exit.")
 
