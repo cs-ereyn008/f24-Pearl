@@ -1,9 +1,19 @@
 const express = require('express');
 const axios = require('axios');
+const bodyParser = require('body-parser');
+const path = require('path');
+const fs = require('fs');
 const app = express();
 const port = process.env.PORT || 3000;
-const path = require('path');
+
 const { spawn } = require('child_process');
+
+//Middleware for parsing form data (stores searched violation code)
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
+app.use(express.json()); // For parsing application/json
 
 //Serve static files (HTML, CSS, JS, Images)
 app.use(express.static(path.join(__dirname, '../../frontend/public')));
@@ -24,6 +34,29 @@ scraper.on('close', (code) => {
 	console.log(`Scraper process exited with code ${code}`);
 });
 //End of web scraper code
+
+app.get('/get-law', (req, res) => {
+	const lawCode = req.query.law; // Get the law code from the query string
+	if (!lawCode) {
+		res.status(400).send('Error: No law code provided.');
+		return;
+	}
+
+	// Format the file name
+	const formattedCode = lawCode.replace(/\./g, '_'); // Replace dots with underscores
+	const filePath = path.join(__dirname, '../traffic_laws', `${formattedCode}_.txt`);
+
+	console.log('Resolved file path:', filePath);
+
+	// Check if the file exists and send its content
+	if (fs.existsSync(filePath)) {
+		const fileContent = fs.readFileSync(filePath, 'utf-8');
+		res.send(fileContent);
+	} else {
+		res.status(404).send(`Error: File not found for law code ${lawCode}.`);
+	}
+});
+
 
 //Home route
 app.get('/', (req, res) => {

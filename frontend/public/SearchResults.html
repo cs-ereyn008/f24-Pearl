@@ -202,7 +202,7 @@
 <body>
 
     <header>
-        <h1><img src="images/TinyStoplight.png" alt="Stoplight"> Traffic Tamer</h1> 
+        <h1><img src="images/TinyStoplight.png" alt="Stoplight"> Traffic Tamer</h1>
         <div class="navbar">
             <nav>
                 <ul>
@@ -218,15 +218,22 @@
         </div>
     </header>
 
+    <!-- ---------------------- -->
+
     <div class="content">
         <h2 class="section-title">Violation: Speeding in a Residential Zone</h2>
         <p><strong>Legal Text:</strong> State Law Code 46.2-878: Speed Limits in Residential Areas</p>
-        <p>(a) It shall be unlawful for any person to drive a motor vehicle on the highways of the Commonwealth at a speed in excess of twenty-five miles per hour in a business or residential district when the applicable speed limit is not otherwise indicated by signs.</p>
-        <p>(b) A violation of this section shall constitute a traffic infraction punishable by a fine of not more than $200 for a first offense and $500 for a second or subsequent offense.</p>
+        <p>(a) It shall be unlawful for any person to drive a motor vehicle on the highways of the Commonwealth at a
+            speed in excess of twenty-five miles per hour in a business or residential district when the applicable
+            speed limit is not otherwise indicated by signs.</p>
+        <p>(b) A violation of this section shall constitute a traffic infraction punishable by a fine of not more than
+            $200 for a first offense and $500 for a second or subsequent offense.</p>
 
         <h3 class="section-subtitle">Simplified Explanation:</h3>
         <ul>
-            <li><strong>Speed Limit:</strong> In residential areas, the speed limit is set to 25 mph unless signs indicate otherwise. This is to ensure the safety of residents, pedestrians, and children who may be playing in the area.</li>
+            <li><strong>Speed Limit:</strong> In residential areas, the speed limit is set to 25 mph unless signs
+                indicate otherwise. This is to ensure the safety of residents, pedestrians, and children who may be
+                playing in the area.</li>
             <li><strong>Penalties:</strong> If you are caught driving faster than 25 mph in a residential zone:
                 <ul>
                     <li>For the first offense, you may be fined up to $200.</li>
@@ -242,6 +249,14 @@
             <li>If you receive a ticket for speeding, you can choose to pay the fine or contest it in court.</li>
         </ul>
 
+        <!-- <div class="content">
+        <h2 id="result-title">Search Results</h2>
+        <div id="result-content"> -->
+        <!-- Dynamic content will be inserted here -->
+        <!-- </div> -->
+
+        <!-- ---------------------- -->
+
         <div class="question-section">
             <div class="question">
                 <label>Do you understand this law and the associated penalties?</label>
@@ -252,7 +267,8 @@
             </div>
 
             <div class="question">
-                <label>Would you like to see examples of common defenses used in court for this type of violation?</label>
+                <label>Would you like to see examples of common defenses used in court for this type of
+                    violation?</label>
                 <div class="question-buttons">
                     <label><input type="radio" name="see-examples" value="yes"> Yes</label>
                     <label><input type="radio" name="see-examples" value="no"> No</label>
@@ -277,6 +293,38 @@
     <footer>
         <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
     </footer>
+
+    <script>
+        // Extract the `law` query parameter from the URL
+        const params = new URLSearchParams(window.location.search);
+        const lawCode = params.get('law');
+
+        const resultTitle = document.getElementById('result-title');
+        const resultContent = document.getElementById('result-content');
+
+        if (lawCode) {
+            // Fetch the content of the law file from the backend
+            fetch(`/get-law?law=${lawCode}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // Display the content of the law file
+                    resultContent.innerHTML = `<pre>${data}</pre>`;
+                })
+                .catch(error => {
+                    // Display an error message if something goes wrong
+                    resultContent.innerHTML = `<p class="error">${error.message}</p>`;
+                });
+        } else {
+            // Handle missing law code
+            resultContent.innerHTML = '<p class="error">No law code provided. Please try again.</p>';
+        }
+    </script>
+
 
 </body>
 

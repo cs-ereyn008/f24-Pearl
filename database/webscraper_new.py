@@ -31,7 +31,7 @@ def scrape_traffic_laws():
             if not law_title.startswith("§"):  # Skip invalid titles
                 continue
             # Extract the law number from the title
-            law_number = law_title.split("§")[1].strip().split(" ")[0]  # Get everything after '§'
+            law_number = law_title.split("§")[1].strip().split(" ")[0]  # Get everything after '§' and before the description
             law_number = law_number.replace(".", "_")  # Replace periods with underscores for filenames
 
             # Extract the body content
