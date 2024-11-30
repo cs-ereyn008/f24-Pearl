@@ -167,8 +167,8 @@
 </head>
 
 <body>
-<header>
-        <h1><img src="images/TinyStoplight.png" alt="Stoplight"> Traffic Tamer</h1> 
+    <header>
+        <h1><img src="images/TinyStoplight.png" alt="Stoplight"> Traffic Tamer</h1>
         <div class="navbar">
             <nav>
                 <ul>
@@ -185,7 +185,7 @@
     </header>
     <section class="info-box">
         <h2>How It Works</h2>
-      
+
         <p>Traffic Tamer simplifies traffic laws across states by providing a unified platform for users to search for
             traffic tickets, understand the laws, and take necessary actions. Our system integrates with various state
             databases to provide accurate and up-to-date information.</p>
@@ -250,8 +250,11 @@
         </div>
     </body>
     <!-----------Above is only visible after manually changing sessionStorage variable 'LLMFormActive' to 1------------------>
-        <p>The Traffic Tamer system simplifies complex traffic laws across states, presenting them in an understandable and accessible format. Our platform empowers users to search for traffic-related information, understand laws in their state, and take appropriate actions.</p>
-        <p>Our system integrates with state databases to provide accurate and up-to-date information, helping users stay informed and comprehend the consequences of various traffic violations.</p>
+    <p>The Traffic Tamer system simplifies complex traffic laws across states, presenting them in an understandable and
+        accessible format. Our platform empowers users to search for traffic-related information, understand laws in
+        their state, and take appropriate actions.</p>
+    <p>Our system integrates with state databases to provide accurate and up-to-date information, helping users stay
+        informed and comprehend the consequences of various traffic violations.</p>
     </section>
 
     <footer class="footer">
@@ -273,7 +276,7 @@
             temperature: 1,
             topP: 0.95,
             topK: 40,
-            maxOutputTokens: 800, //8192 was the default
+            maxOutputTokens: 4000, //8192 was the default
             responseMimeType: "text/plain",
         };
 
