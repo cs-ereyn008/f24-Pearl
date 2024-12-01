@@ -1,9 +1,34 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const axios = require('axios');
 
 const app = express();
 const port = 3000;
+
+// Custom route for fetching law text
+app.get('/get-law', (req, res) => {
+	const lawCode = req.query.law; // Get the law code from the query string
+
+	if (!lawCode) {
+		console.log('get-law accessed: no law code found');
+		res.status(400).send('Error: No law code provided.');
+		return;
+	}
+
+	const formattedCode = lawCode.replace(/\./g, '_'); // Replace dots with underscores
+	const filePath = path.join(__dirname, '../traffic_laws', `${formattedCode}_.txt`);
+
+	console.log('Resolved file path:', filePath);
+
+	if (fs.existsSync(filePath)) {
+		const fileContent = fs.readFileSync(filePath, 'utf-8');
+		res.type('text/plain'); // Explicitly set the content type to plain text
+		res.send(fileContent);
+	} else {
+		res.status(404).send(`Error: File not found for law code ${lawCode}.`);
+	}
+});
 
 //Runs web scraper on backend start
 //You must issue the commands 'pip install beautifulsoup' and 'pip install schedule' in your terminal
@@ -24,36 +49,14 @@ scraper.on('close', (code) => {
 });
 //End of web scraper code
 
-// Custom route for fetching law text
-app.get('/get-law', (req, res) => {
-	const lawCode = req.query.law; // Get the law code from the query string
-	if (!lawCode) {
-		res.status(400).send('Error: No law code provided.');
-		return;
-	}
-
-	const formattedCode = lawCode.replace(/\./g, '_'); // Replace dots with underscores
-	const filePath = path.join(__dirname, '../traffic_laws', `${formattedCode}_.txt`);
-
-	console.log('Resolved file path:', filePath);
-
-	if (fs.existsSync(filePath)) {
-		const fileContent = fs.readFileSync(filePath, 'utf-8');
-		res.type('text/plain'); // Explicitly set the content type to plain text
-		res.send(fileContent);
-	} else {
-		res.status(404).send(`Error: File not found for law code ${lawCode}.`);
-	}
-});
-
 // Serve static files
 app.use(express.static(path.join(__dirname, '../../frontend/public')));
 
 //Home route
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
 	//res.send('Hello World from backend!');
 	res.sendFile(path.join(__dirname, '../../frontend/public/index.html'));
-});
+}); */
 
 app.get('/api/users', async (req, res) => {
 	try {

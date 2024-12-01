@@ -408,6 +408,36 @@
     <footer class="footer">
         <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
     </footer>
+    <script>
+        // Get the query parameters from the current URL
+        const params = new URLSearchParams(window.location.search);
+
+        // Prefill the form fields based on the query parameters
+        document.addEventListener("DOMContentLoaded", () => {
+            const fields = [
+                "state",
+                "county",
+                "local-police-code",
+                "law",
+                "officer-id",
+                "date",
+                "time",
+                "location",
+                "officer-comments",
+                "weather",
+                "traffic",
+                "vehicle",
+                "vehicle-details",
+            ];
+
+            fields.forEach((field) => {
+                const input = document.querySelector(`[name="${field}"]`);
+                if (input && params.has(field)) {
+                    input.value = params.get(field); // Set the value if the parameter exists
+                }
+            });
+        });
+    </script>
 
 </body>
 

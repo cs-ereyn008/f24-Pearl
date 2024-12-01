@@ -329,13 +329,60 @@
 
         <div class="buttons">
             <a href="TicketSearch.html">Submit New Search</a>
-            <a href="TicketSearch.html">Update Information</a>
+            <a href="#" id="update-info-btn">Update Information</a>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
     </footer>
+
+    <script>
+        // Extract the current query parameters from the URL
+        const currentParams = new URLSearchParams(window.location.search);
+
+        // Find the "Update Information" button
+        const updateInfoBtn = document.getElementById("update-info-btn");
+
+        // Update the href of the button dynamically
+        updateInfoBtn.href = `TicketSearch.html?${currentParams.toString()}`;
+    </script>
+
+    <script>
+        // Extract the `law` query parameter from the URL
+        const params = new URLSearchParams(window.location.search);
+        const lawCode = params.get("law");
+
+        const resultTitle = document.getElementById("result-title");
+        const resultContent = document.getElementById("result-content");
+
+        if (lawCode) {
+            // Show a loading message
+            resultContent.innerHTML = "<p>Loading content for law " + lawCode + "...</p>";
+
+            // Fetch the content of the law file from the backend
+            fetch(`/get-law?law=${encodeURIComponent(lawCode)}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then((data) => {
+                    // Update the title
+                    resultTitle.innerText = `Search Results for Law ${lawCode}`;
+                    // Display the content of the law file
+                    resultContent.textContent = data; // Use textContent to preserve the text formatting
+                })
+                .catch((error) => {
+                    // Display an error message if something goes wrong
+                    resultContent.innerHTML = `<p class="error">Could not retrieve content for law ${lawCode}. ${error.message}</p>`;
+                });
+        } else {
+            // Handle missing law code
+            resultContent.innerHTML = "<p class='error'>No law code provided. Please try again.</p>";
+        }
+    </script>
 
     <script>
         document.getElementById("simplify-law-btn").addEventListener("click", async (event) => {
@@ -358,7 +405,7 @@
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer your_api_key`, // Replace with your OpenAI API key
+                        "Authorization": `Bearer YOUR_API_KEY`, // Replace with your OpenAI API key
                         "Cache-Control": "no-cache" // Prevent caching of the request and response
                     },
                     body: JSON.stringify({
@@ -387,40 +434,6 @@
             }
         });
     </script>
-
-    <script>
-        // Extract the `law` query parameter from the URL
-        const params = new URLSearchParams(window.location.search);
-        const lawCode = params.get('law');
-
-        const resultTitle = document.getElementById('result-title');
-        const resultContent = document.getElementById('result-content');
-
-        if (lawCode) {
-            // Fetch the content of the law file from the backend
-            fetch(`/get-law?law=${lawCode}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Error: ${response.statusText}`);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    // Update the title
-                    resultTitle.innerText = `Search Results for Law ${lawCode}`;
-                    // Display the content of the law file
-                    resultContent.textContent = data; // Use textContent to preserve text as-is
-                })
-                .catch(error => {
-                    // Display an error message if something goes wrong
-                    resultContent.innerHTML = `<p class="error">${error.message}</p>`;
-                });
-        } else {
-            // Handle missing law code
-            resultContent.innerHTML = '<p class="error">No law code provided. Please try again.</p>';
-        }
-    </script>
-
 
 </body>
 

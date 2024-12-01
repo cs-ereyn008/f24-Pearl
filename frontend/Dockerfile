@@ -1,5 +1,5 @@
 # Node Image
-From node:16
+FROM node:16
 
 # Working Directory
 WORKDIR /usr/src/app
