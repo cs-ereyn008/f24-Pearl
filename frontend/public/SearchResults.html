@@ -337,23 +337,6 @@
         <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
     </footer>
 
-    <!-- <script>
-        document.getElementById('simplify-law-btn').addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent the default link behavior
-            const simplifiedLaw = document.getElementById('simplified-law');
-
-            // Toggle the display of the simplified law
-            simplifiedLaw.style.display = (simplifiedLaw.style.display === 'none') ? 'block' : 'none';
-
-            // Optionally, update the content with a simplified explanation
-            simplifiedLaw.innerHTML = `
-                <h3>Simplified Law Explanation:</h3>
-                <p>This law means that...</p>
-            `;
-        });
-    </script> -->
-    <!-- Above is old API call, below is new -->
-
     <script>
         document.getElementById("simplify-law-btn").addEventListener("click", async (event) => {
             event.preventDefault(); // Prevent default link behavior
@@ -403,31 +386,6 @@
                 simplifiedLawContainer.innerHTML = "An error occurred while processing the request. Please try again.";
             }
         });
-    </script>
-
-
-    <script>
-        //LLM API CALL NOTES/COMMENTS
-        //This is a temporary function to allow for LLM experimentation on the 'How it Works' page.
-        //It stores a variable in sessionStorage when the page loads
-        //Inspect the page, go to 'Application', 'Session Storage' and manually edit the value to '1' 
-        //Reload the page and it will reveal the LLM legal translation form I'm working on. -Gavin
-        //You may need to enter 'npm install @google/generative-ai' in your dev environment to make this work for you (?)
-        document.addEventListener('DOMContentLoaded', function () {
-            //checks if the variable already exists
-            if (!sessionStorage.getItem('LLMFormActive')) {
-                //If it doesn't, instantiate it at 0 in sessionStorage
-                sessionStorage.setItem('LLMFormActive', '0');
-            }
-        });
-    </script>
-
-    <script type="importmap">
-    {
-      "imports": {
-        "@google/generative-ai": "https://esm.run/@google/generative-ai"
-      }
-    }
     </script>
 
     <script>
