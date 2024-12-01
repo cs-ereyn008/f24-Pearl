@@ -21,7 +21,9 @@ gradle-app.setting
 .classpath
 
 node_modules/
+# Ignore .env file
 .env
+
 .vscode
 
 backend/node_modules
