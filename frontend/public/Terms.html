@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +18,19 @@
             min-height: 100vh;
         }
 
-        header, footer {
+        header {
+            background-color: transparent;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        footer {
             background-color: #003366;
             padding: 20px;
             text-align: center;
@@ -33,8 +46,27 @@
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
-        h1, h2 {
-            color: #00ffff;
+        .navbar {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar h1 img {
+            height: 12px;
+            width: 15px;
+            margin-left: 10px;
+            vertical-align: middle;
         }
 
         p {
@@ -42,19 +74,50 @@
             color: #d0e6ff;
         }
 
-        a {
-            color: #00ffff;
-            text-decoration: none;
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
-        a:hover {
-            text-decoration: underline;
+        nav ul li a {
+            padding: 10px 20px;
+            background: #0044cc;
+            border: 2px solid #00ffff;
+            border-radius: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        nav ul li a:hover {
+            background: #00ffff;
+            color: #003366;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+            border-color: #ffffff;
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h1>Traffic Tamer</h1>
+        <h1><img src="images/TinyStoplight.png" alt="Stoplight"> Traffic Tamer</h1>
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="TicketSearch.html">Ticket Search</a></li>
+                    <li><a href="HowItWorks.html">How It Works</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="ContactUs.html">Contact Us</a></li>
+                    <li><a href="Login.html">Login/Sign Up</a></li>
+                    <li><a href="Terms.html">Terms & Privacy</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <div class="content">
@@ -62,30 +125,39 @@
 
         <h2>Purpose of the Website</h2>
         <p>
-            Traffic Tamer is a project developed as part of an academic assignment. Its primary goal is to demonstrate the use of artificial intelligence in simplifying traffic law searches and traffic violation analysis. 
+            Traffic Tamer is a project developed as part of an academic assignment. Its primary goal is to demonstrate
+            the use of artificial intelligence in simplifying traffic law searches and traffic violation analysis.
         </p>
         <p>
-            <strong>Important Disclaimer:</strong> The information provided on this site is for educational purposes only. It should <strong>not</strong> be relied upon for legal advice or in any legal situation. Always consult a qualified legal professional for assistance with traffic violations or other legal matters.
+            <strong>Important Disclaimer:</strong> The information provided on this site is for educational purposes
+            only. It should <strong>not</strong> be relied upon for legal advice or in any legal situation. Always
+            consult a qualified legal professional for assistance with traffic violations or other legal matters.
         </p>
 
         <h2>Privacy Policy</h2>
         <p>
-            Traffic Tamer respects your privacy. We do not collect, store, or share any personal information beyond what is necessary for the functionality of this project.
+            Traffic Tamer respects your privacy. We do not collect, store, or share any personal information beyond what
+            is necessary for the functionality of this project.
         </p>
         <ul>
             <li>We do not use cookies or tracking technologies.</li>
-            <li>Any data entered into the system (e.g., ticket details) is processed locally and not stored on any servers.</li>
-            <li>Since this is an academic project, the site does not implement advanced data security protocols. Avoid entering sensitive or personal information.</li>
+            <li>Any data entered into the system (e.g., ticket details) is processed locally and not stored on any
+                servers.</li>
+            <li>Since this is an academic project, the site does not implement advanced data security protocols. Avoid
+                entering sensitive or personal information.</li>
         </ul>
 
         <h2>Liability Disclaimer</h2>
         <p>
-            This website is provided "as is" without any guarantees of accuracy, reliability, or completeness. The developers of Traffic Tamer shall not be held liable for any consequences resulting from the use of this site or its outputs. Users assume full responsibility for their use of the website.
+            This website is provided "as is" without any guarantees of accuracy, reliability, or completeness. The
+            developers of Traffic Tamer shall not be held liable for any consequences resulting from the use of this
+            site or its outputs. Users assume full responsibility for their use of the website.
         </p>
 
         <h2>Contact Information</h2>
         <p>
-            If you have questions about this project, please reach out to the project team through the <a href="ContactUs.html">Contact Us</a> page.
+            If you have questions about this project, please reach out to the project team through the <a
+                href="ContactUs.html">Contact Us</a> page.
         </p>
     </div>
 
@@ -93,4 +165,5 @@
         <p>&copy; 2024 Traffic Tamer | Academic Project | Developed by Team Pearl</p>
     </footer>
 </body>
+
 </html>
