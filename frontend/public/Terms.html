@@ -7,15 +7,38 @@
     <title>Terms and Privacy | Traffic Tamer</title>
     <link rel="icon" href="images/stoplight.png" type="image/png">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(to bottom, #89CFF0, #003366);
-            color: #ffffff;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #89CFF0, #003366);
+            color: #ffffff;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+        }
+
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 18px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #003366;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #00aaff;
+            border-radius: 6px;
+            border: 3px solid #003366;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #00ccff;
         }
 
         header {
@@ -27,23 +50,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-        }
-
-        footer {
-            background-color: #003366;
-            padding: 20px;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        .content {
-            padding: 20px;
-            max-width: 800px;
-            margin: 20px auto;
-            background: rgba(0, 44, 66, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
         .navbar {
@@ -69,17 +75,16 @@
             vertical-align: middle;
         }
 
-        p {
-            line-height: 1.6;
-            color: #d0e6ff;
-        }
-
         nav ul {
             list-style-type: none;
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
             align-items: center;
+        }
+
+        nav ul li {
+            display: inline-block;
         }
 
         nav ul li a {
@@ -91,6 +96,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            text-align: center;
         }
 
         nav ul li a:hover {
@@ -99,10 +105,63 @@
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
             border-color: #ffffff;
         }
+
+        .content-section {
+            padding: 40px;
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        .content-section h1 {
+            text-align: center;
+            font-size: 38px;
+            color: #00ffff;
+            margin-bottom: 20px;
+        }
+
+
+        .content-section h2 {
+            text-align: left;
+            font-size: 22px;
+            color: #00ffff;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            font-size: 18px;
+            color: #ffffff;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .content-section ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style-type: disc;
+        }
+
+        .content-section ul li {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: #003366;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
     </style>
 </head>
 
 <body>
+
     <header>
         <h1><img src="images/TinyStoplight.png" alt="Stoplight"> Traffic Tamer</h1>
         <div class="navbar">
@@ -120,9 +179,8 @@
         </div>
     </header>
 
-    <div class="content">
+    <section class="content-section">
         <h1>Terms and Privacy</h1>
-
         <h2>Purpose of the Website</h2>
         <p>
             Traffic Tamer is a project developed as part of an academic assignment. Its primary goal is to demonstrate
@@ -135,10 +193,8 @@
         </p>
 
         <h2>Privacy Policy</h2>
-        <p>
-            Traffic Tamer respects your privacy. We do not collect, store, or share any personal information beyond what
-            is necessary for the functionality of this project.
-        </p>
+        <p>Traffic Tamer respects your privacy. We do not collect, store, or share any personal information beyond what
+            is necessary for the functionality of this project.</p>
         <ul>
             <li>We do not use cookies or tracking technologies.</li>
             <li>Any data entered into the system (e.g., ticket details) is processed locally and not stored on any
@@ -159,11 +215,12 @@
             If you have questions about this project, please reach out to the project team through the <a
                 href="ContactUs.html">Contact Us</a> page.
         </p>
-    </div>
+    </section>
 
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 Traffic Tamer | Academic Project | Developed by Team Pearl</p>
     </footer>
+
 </body>
 
 </html>
