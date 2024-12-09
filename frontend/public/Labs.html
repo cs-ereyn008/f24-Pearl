@@ -52,6 +52,77 @@
             align-items: center;
         }
 
+        header h1 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .labs-section {
+            padding: 40px;
+            width: 90%;
+            /* Updated to occupy 90% of the screen width */
+            max-width: 1200px;
+            /* Optional: Limit maximum width for large screens */
+            margin: 40px auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .labs-section h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #00ffff;
+            margin-bottom: 30px;
+        }
+
+        .lab {
+            margin-bottom: 30px;
+        }
+
+        .lab h3 {
+            font-size: 24px;
+            color: #00ffff;
+            margin-bottom: 10px;
+        }
+
+        .doc-viewer {
+            display: none;
+            /* Initially hidden */
+        }
+
+        .doc-viewer iframe {
+            width: 100%;
+            max-width: 1200px;
+            /* Optional: Limit maximum width for large screens */
+            height: 600px;
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            background-color: #ffffff;
+            margin: 0 auto;
+            /* Centers the iframe */
+            display: block;
+            /* Ensure proper alignment */
+        }
+
+        .toggle-button {
+            padding: 10px 20px;
+            background-color: #0044cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-button:hover {
+            background-color: #00ccff;
+        }
+
         .navbar {
             display: flex;
             gap: 15px;
@@ -176,48 +247,58 @@
         </div>
     </header>
 
-    <section class="faq-section">
-        <h2>Frequently Asked Questions (FAQ)</h2>
-        <ul>
-            <li>
-                <strong>What is Traffic Tamer?</strong>
-                <p>Traffic Tamer is a web application designed to help users easily navigate and understand traffic
-                    laws. It provides automated law lookups, simplified explanations, and up-to-date traffic law
-                    information based on location.</p>
-            </li>
-            <li>
-                <strong>How does Traffic Tamer work?</strong>
-                <p>By utilizing traffic data and machine learning algorithms, Traffic Tamer categorizes and presents
-                    relevant traffic laws based on the user's state, county, local police code, and violation code. It
-                    simplifies complex laws into layman's terms to enhance comprehension.</p>
-            </li>
-            <li>
-                <strong>Who can benefit from Traffic Tamer?</strong>
-                <p>Traffic Tamer is beneficial for general drivers, traffic violators, law students specializing in
-                    traffic law, and driver improvement class students. It also serves legal professionals, insurance
-                    agents, and policymakers.</p>
-            </li>
-            <li>
-                <strong>Is Traffic Tamer updated with new traffic laws?</strong>
-                <p>Yes, Traffic Tamer stays up to date with current traffic laws, ensuring users have access to the
-                    latest regulations and can find relevant information based on their location.</p>
-            </li>
-            <li>
-                <strong>What platforms does Traffic Tamer run on?</strong>
-                <p>Traffic Tamer runs on a Linux system with Apache as the web server, managing data with MySQL and
-                    SQLite. The front end is built using React, and it is containerized using Docker for deployment.</p>
-            </li>
-            <li>
-                <strong>How can I access Traffic Tamer?</strong>
-                <p>Traffic Tamer is accessible online through any web browser, providing a user-friendly interface to
-                    help users quickly find and understand traffic laws.</p>
-            </li>
-        </ul>
+    <section class="labs-section">
+        <h2>Lab Documents</h2>
+
+        <div class="lab">
+            <h3>Lab 1 Gavin Clendenin</h3>
+            <button class="toggle-button" onclick="toggleViewer('viewer1')">View/Hide Document</button>
+            <div class="doc-viewer" id="viewer1">
+                <iframe src="./labs/Lab-1-Ver1-Clendenin.pdf" title="Lab 1 Document"></iframe>
+            </div>
+        </div>
+
+        <div class="lab">
+            <h3>Lab 2 (Individual) Gavin Clendenin</h3>
+            <button class="toggle-button" onclick="toggleViewer('viewer2')">View/Hide Document</button>
+            <div class="doc-viewer" id="viewer2">
+                <iframe src="./labs/Lab-2-Ver2-Clendenin.pdf" title="Lab 2 Individual Document"></iframe>
+            </div>
+        </div>
+
+        <div class="lab">
+            <h3>Lab 2 Section 3 (Group)</h3>
+            <button class="toggle-button" onclick="toggleViewer('viewer3')">View/Hide Document</button>
+            <div class="doc-viewer" id="viewer3">
+                <iframe src="labs/Lab-2-Group.pdf" title="Lab 2 Group Document"></iframe>
+            </div>
+        </div>
+
+        <div class="lab">
+            <h3>Lab 3 and 4 (User Manual)</h3>
+            <button class="toggle-button" onclick="toggleViewer('viewer4')">View/Hide Link</button>
+            <div class="doc-viewer" id="viewer4">
+                <a href="https://github.com/cs-ereyn008/f24-Pearl/wiki"
+                    style="font-size: 20px; font-weight: bold;">Traffic Tamer User
+                    Manual</a>
+            </div>
+        </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2024 Traffic Tamer | Simplifying Traffic Laws Across States | Developed by Team Pearl</p>
+        <p>&copy; 2024 Labs | Developed for Educational Purposes</p>
     </footer>
+
+    <script>
+        function toggleViewer(id) {
+            const viewer = document.getElementById(id);
+            if (viewer.style.display === "none" || viewer.style.display === "") {
+                viewer.style.display = "block";
+            } else {
+                viewer.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 
