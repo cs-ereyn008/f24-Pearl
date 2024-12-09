@@ -62,9 +62,7 @@
         .labs-section {
             padding: 40px;
             width: 90%;
-            /* Updated to occupy 90% of the screen width */
             max-width: 1200px;
-            /* Optional: Limit maximum width for large screens */
             margin: 40px auto;
             background-color: rgba(0, 0, 0, 0.6);
             border-radius: 10px;
@@ -90,21 +88,17 @@
 
         .doc-viewer {
             display: none;
-            /* Initially hidden */
         }
 
         .doc-viewer iframe {
             width: 100%;
             max-width: 1200px;
-            /* Optional: Limit maximum width for large screens */
             height: 600px;
             border: 2px solid #00ffff;
             border-radius: 10px;
             background-color: #ffffff;
             margin: 0 auto;
-            /* Centers the iframe */
             display: block;
-            /* Ensure proper alignment */
         }
 
         .toggle-button {
@@ -177,46 +171,6 @@
             border-color: #ffffff;
         }
 
-        .faq-section {
-            padding: 40px;
-            max-width: 800px;
-            margin: 40px auto;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            color: #ffffff;
-        }
-
-        .faq-section h2 {
-            text-align: center;
-            font-size: 36px;
-            color: #00ffff;
-            margin-bottom: 30px;
-        }
-
-        .faq-section ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .faq-section ul li {
-            margin-bottom: 20px;
-        }
-
-        .faq-section ul li strong {
-            display: block;
-            font-size: 22px;
-            color: #00ffff;
-            margin-bottom: 10px;
-        }
-
-        .faq-section ul li p {
-            font-size: 18px;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-
         .footer {
             background-color: #003366;
             color: #ffffff;
@@ -251,22 +205,6 @@
         <h2>Lab Documents</h2>
 
         <div class="lab">
-            <h3>Lab 1 Gavin Clendenin</h3>
-            <button class="toggle-button" onclick="toggleViewer('viewer1')">View/Hide Document</button>
-            <div class="doc-viewer" id="viewer1">
-                <iframe src="./labs/Lab-1-Ver1-Clendenin.pdf" title="Lab 1 Document"></iframe>
-            </div>
-        </div>
-
-        <div class="lab">
-            <h3>Lab 2 (Individual) Gavin Clendenin</h3>
-            <button class="toggle-button" onclick="toggleViewer('viewer2')">View/Hide Document</button>
-            <div class="doc-viewer" id="viewer2">
-                <iframe src="./labs/Lab-2-Ver2-Clendenin.pdf" title="Lab 2 Individual Document"></iframe>
-            </div>
-        </div>
-
-        <div class="lab">
             <h3>Lab 2 Section 3 (Group)</h3>
             <button class="toggle-button" onclick="toggleViewer('viewer3')">View/Hide Document</button>
             <div class="doc-viewer" id="viewer3">
@@ -276,12 +214,43 @@
 
         <div class="lab">
             <h3>Lab 3 and 4 (User Manual) (Link)</h3>
-            <!-- <button class="toggle-button" onclick="toggleViewer('viewer4')">View/Hide Link</button> -->
             <div>
-                <a href="https://github.com/cs-ereyn008/f24-Pearl/wiki"
-                    style="font-size: 20px; font-weight: bold;">CLICK HERE TO BE REDIRECTED</a>
+                <a href="https://github.com/cs-ereyn008/f24-Pearl/wiki" style="font-size: 20px; font-weight: bold;">CLICK HERE TO BE REDIRECTED</a>
             </div>
         </div>
+        
+        <div class="lab">
+            <h3>Lab 1 - Version 1 Gavin Clendenin</h3>
+            <button class="toggle-button" onclick="toggleViewer('viewer1')">View/Hide Document</button>
+            <div class="doc-viewer" id="viewer1">
+                <iframe src="./labs/Lab-1-Ver1-Clendenin.pdf" title="Lab 1 Document"></iframe>
+            </div>
+        </div>
+
+        <div class="lab">
+            <h3>Lab 2 - Version 2 Gavin Clendenin</h3>
+            <button class="toggle-button" onclick="toggleViewer('viewer2')">View/Hide Document</button>
+            <div class="doc-viewer" id="viewer2">
+                <iframe src="./labs/Lab-2-Ver2-Clendenin.pdf" title="Lab 2 Individual Document"></iframe>
+            </div>
+        </div>
+        
+        <div class="lab">
+            <h3>Lab 1 - Version 1 Emily Reyna</h3>
+            <button class="toggle-button" onclick="toggleViewer('viewer4')">View/Hide Document</button>
+            <div class="doc-viewer" id="viewer4">
+                <iframe src="./labs/Lab1%20-%20Version%201.pdf" title="Lab 1 Version 1 Document"></iframe>
+            </div>
+        </div>
+
+        <div class="lab">
+            <h3>Reyna Lab 2 - Version 2 Emily Reyna</h3>
+            <button class="toggle-button" onclick="toggleViewer('viewer5')">View/Hide Document</button>
+            <div class="doc-viewer" id="viewer5">
+                <iframe src="./labs/Reyna_Lab2V2.pdf" title="Reyna Lab 2 Version 2 Document"></iframe>
+            </div>
+        </div>
+
     </section>
 
     <footer class="footer">
